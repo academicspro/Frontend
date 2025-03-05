@@ -29,8 +29,9 @@ export const SidebarData: SidebarItem[] = [
     submenuOpen: true,
     showSubRoute: false,
     submenuHdr: "Main",
-    roles: ["admin", "teacher", "student", "parent"],
+    roles: ["admin", "teacher", "student", "parent", "superadmin"],
     submenuItems: [
+      {label: "Super Admin Dashboard", icon: "ti ti-layout-dashboard", link: routes.superAdminDashboard, roles: ["superadmin"]},
       { label: "Admin Dashboard", icon: "ti ti-layout-dashboard", link: routes.adminDashboard, roles: ["admin"] },
       { label: "Teacher Dashboard", icon: "ti ti-layout-dashboard", link: routes.teacherDashboard, roles: ["teacher"] },
       { label: "Student Dashboard", icon: "ti ti-layout-dashboard", link: routes.studentDashboard, roles: ["student"] },
@@ -38,27 +39,27 @@ export const SidebarData: SidebarItem[] = [
       {
         label: "Application",
         icon: "ti ti-layout-list",
-        roles: ["admin", "teacher", "student", "parent"],
+        roles: ["admin", "teacher", "student", "parent","superadmin"],
         submenu: true,
         showSubRoute: false,
         submenuItems: [
           {
             label: "Chat",
             link: routes.chat,
-            roles: ["admin", "teacher", "student", "parent"],
+            roles: ["admin", "teacher", "student", "parent","superadmin"],
             showSubRoute: false,
           },
           {
             label: "Call",
             link: routes.audioCall,
             showSubRoute: false,
-            roles: ["admin"],
+            roles: ["admin","superadmin"],
           },
           {
             label: "Calendar",
             link: routes.calendar,
             showSubRoute: false,
-            roles: ["teacher"],
+            roles: ["teacher","superadmin"],
           },
           {
             label: "Email",
@@ -89,6 +90,7 @@ export const SidebarData: SidebarItem[] = [
     submenuOpen: false,
     showSubRoute: false,
     submenuHdr: "LAYOUT",
+    roles: ["admin", "teacher", "student", "parent"],
     submenuItems: [
       {
         label: "Default",

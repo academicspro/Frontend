@@ -40,9 +40,13 @@ const CommonRouteWrapper = () => {
         console.log("role", role);
 
         switch (role) {
+          
           case "admin":
             navigate(all_routes.adminDashboard);
             break;
+            case "superadmin":
+              navigate(all_routes.superAdminDashboard);
+              break;
           case "teacher":
             navigate(all_routes.teacherDashboard);
             break;

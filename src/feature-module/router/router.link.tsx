@@ -248,6 +248,7 @@ import EmailVerification3 from "../auth/emailVerification/emailVerification-3";
 import NotificationActivities from "../pages/profile/activities";
 import Videocallss from "../application/call/videocalls";
 import Videocall from "../application/call/videoCall";
+import SuperAdminDashboard from "../mainMenu/superadmindashboard";
 
 const routes = all_routes;
 
@@ -266,6 +267,11 @@ export const publicRoutes = [
   {
     path: routes.teacherDashboard,
     element: <TeacherDashboard />,
+    route: Route,
+  },
+  {
+    path: routes.superAdminDashboard,
+    element: < SuperAdminDashboard/>,
     route: Route,
   },
   {

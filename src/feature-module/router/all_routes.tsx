@@ -4,6 +4,7 @@ export const all_routes = {
   parentDashboard: "/parent-dashboard",
   studentDashboard: "/student-dashboard",
   teacherDashboard: "/teacher-dashboard",
+  superAdminDashboard : "/super-dashboard",
 
   blankPage: "/blank-page",
   calendar: "/calendar",
