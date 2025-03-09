@@ -9,7 +9,7 @@ export type SidebarItem = {
   link?: string;
   submenuOpen?: boolean;
   themeSetting?: boolean;
-  roles?: string[];  // Ensure `roles` is part of the type
+  roles?: string[]; 
   submenuItems?: SidebarItem[];
   submenuHdr?: string;
   subLink1?: string;
@@ -65,21 +65,26 @@ export const SidebarData: SidebarItem[] = [
             label: "Email",
             link: routes.email,
             showSubRoute: false,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+            
           },
           {
             label: "To Do",
             link: routes.todo,
             showSubRoute: false,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
           {
             label: "Notes",
             link: routes.notes,
             showSubRoute: false,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
           {
             label: "File Manager",
             link: routes.fileManager,
             showSubRoute: false,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
         ],
       },
@@ -90,7 +95,7 @@ export const SidebarData: SidebarItem[] = [
     submenuOpen: false,
     showSubRoute: false,
     submenuHdr: "LAYOUT",
-    roles: ["admin", "teacher", "student", "parent"],
+    
     submenuItems: [
       {
         label: "Default",
@@ -139,6 +144,7 @@ export const SidebarData: SidebarItem[] = [
     submenuOpen: true,
     showSubRoute: false,
     submenuHdr: "Peoples",
+    roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
     submenuItems: [
       {
@@ -146,6 +152,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-school",
         submenu: true,
         showSubRoute: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
           {
@@ -153,8 +160,11 @@ export const SidebarData: SidebarItem[] = [
             link: routes.studentGrid,
             subLink1: routes.addStudent,
             subLink2: routes.editStudent,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Students List", link: routes.studentList },
+          { label: "Students List", link: routes.studentList,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
           {
             label: "Students Details",
             link: routes.studentDetail,
@@ -163,8 +173,11 @@ export const SidebarData: SidebarItem[] = [
             subLink3: routes.studentFees,
             subLink4: routes.studentLeaves,
             subLink5: routes.studentTimeTable,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Student Promotion", link: routes.studentPromotion },
+          { label: "Student Promotion", link: routes.studentPromotion,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
         ],
       },
       {
@@ -172,9 +185,14 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-user-bolt",
         showSubRoute: false,
         submenu: true,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
         submenuItems: [
-          { label: "All Parents", link: routes.parentGrid },
-          { label: "Parents List", link: routes.parentList },
+          { label: "All Parents", link: routes.parentGrid,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Parents List", link: routes.parentList,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
         ],
       },
       {
@@ -182,9 +200,14 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-user-shield",
         showSubRoute: false,
         submenu: true,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
         submenuItems: [
-          { label: "All Guardians", link: routes.guardiansGrid },
-          { label: "Guardians List", link: routes.guardiansList },
+          { label: "All Guardians", link: routes.guardiansGrid,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Guardians List", link: routes.guardiansList ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
         ],
       },
       {
@@ -192,23 +215,29 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-users",
         submenu: true,
         showSubRoute: false,
-
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
         submenuItems: [
           {
             label: "All Teachers",
             link: routes.teacherGrid,
             subLink1: routes.addTeacher,
-            subLink2: routes.editTeacher,
+            subLink2: routes.editTeacher, 
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Teacher List", link: routes.teacherList },
+          { label: "Teacher List", link: routes.teacherList ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
           {
             label: "Teacher Details",
             link: routes.teacherDetails,
             subLink1: routes.teacherLibrary,
             subLink2: routes.teacherSalary,
-            subLink3: routes.teacherLeaves,
+            subLink3: routes.teacherLeaves, 
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Routine", link: routes.teachersRoutine },
+          { label: "Routine", link: routes.teachersRoutine ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
         ],
       },
     ],
@@ -218,6 +247,7 @@ export const SidebarData: SidebarItem[] = [
     submenuOpen: true,
     showSubRoute: false,
     submenuHdr: "Academic",
+    roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
     submenuItems: [
       {
@@ -225,10 +255,15 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-school-bell",
         submenu: true,
         showSubRoute: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "All Classes", link: routes.classes },
-          { label: "Schedule", link: routes.sheduleClasses },
+          { label: "All Classes", link: routes.classes ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          { label: "Schedule", link: routes.sheduleClasses ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
         ],
       },
       {
@@ -237,6 +272,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-building",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Class Routine",
@@ -244,6 +280,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-bell-school",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Section",
@@ -251,6 +288,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-square-rotated-forbid-2",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Subject",
@@ -258,6 +296,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-book",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Syllabus",
@@ -265,6 +304,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-book-upload",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Time Table",
@@ -272,6 +312,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-table",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Home Work",
@@ -279,19 +320,36 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-license",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Examinations",
         icon: "ti ti-hexagonal-prism-plus",
         submenu: true,
         showSubRoute: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "Exam", link: routes.exam },
-          { label: "Exam Schedule", link: routes.examSchedule },
-          { label: "Grade", link: routes.grade },
-          { label: "Exam Attendance", link: routes.examAttendance },
-          { label: "Exam Results", link: routes.examResult },
+          { label: "Exam", link: routes.exam ,
+
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          { label: "Exam Schedule", link: routes.examSchedule,
+
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Grade", link: routes.grade,
+
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Exam Attendance", link: routes.examAttendance ,
+
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          { label: "Exam Results", link: routes.examResult ,
+
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
         ],
       },
       {
@@ -300,6 +358,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-lifebuoy",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
     ],
   },
@@ -309,6 +368,7 @@ export const SidebarData: SidebarItem[] = [
     submenuHdr: "Management",
     submenu: false,
     showSubRoute: false,
+    roles: ["admin", "teacher", "student", "parent", "superadmin"],
     submenuItems: [
       {
         label: "Fees Collection",
@@ -317,11 +377,21 @@ export const SidebarData: SidebarItem[] = [
         showSubRoute: false,
 
         submenuItems: [
-          { label: "Fees Group", link: routes.feesGroup },
-          { label: "Fees Type", link: routes.feesType },
-          { label: "Fees Master", link: routes.feesMaster },
-          { label: "Fees Assign", link: routes.feesAssign },
-          { label: "Collect Fees", link: routes.collectFees },
+          { label: "Fees Group", link: routes.feesGroup ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          { label: "Fees Type", link: routes.feesType,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Fees Master", link: routes.feesMaster,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Fees Assign", link: routes.feesAssign ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          { label: "Collect Fees", link: routes.collectFees,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
         ],
       },
       {
@@ -329,12 +399,21 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-notebook",
         submenu: true,
         showSubRoute: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "Library Members", link: routes.libraryMembers },
-          { label: "Books", link: routes.libraryBooks },
-          { label: "Issue Book", link: routes.libraryIssueBook },
-          { label: "Return", link: routes.libraryReturn },
+          { label: "Library Members", link: routes.libraryMembers,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Books", link: routes.libraryBooks ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          { label: "Issue Book", link: routes.libraryIssueBook ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          { label: "Return", link: routes.libraryReturn ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
         ],
       },
       {
@@ -343,6 +422,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-run",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Players",
@@ -350,17 +430,25 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-play-football",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Hostel",
         icon: "ti ti-building-fortress",
         submenu: true,
         showSubRoute: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "Hostel List", link: routes.hostelList },
-          { label: "Hostel Rooms", link: routes.hostelRoom },
-          { label: "Room Type", link: routes.hostelType },
+          { label: "Hostel List", link: routes.hostelList ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          { label: "Hostel Rooms", link: routes.hostelRoom ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          { label: "Room Type", link: routes.hostelType ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
         ],
       },
       {
@@ -368,13 +456,24 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-bus",
         submenu: true,
         showSubRoute: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "Routes", link: routes.transportRoutes },
-          { label: "Pickup Points", link: routes.transportPickupPoints },
-          { label: "Vehicle Drivers", link: routes.transportVehicleDrivers },
-          { label: "Vehicle", link: routes.transportVehicle },
-          { label: "Assign Vehicle", link: routes.transportAssignVehicle },
+          { label: "Routes", link: routes.transportRoutes,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Pickup Points", link: routes.transportPickupPoints,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Vehicle Drivers", link: routes.transportVehicleDrivers ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          { label: "Vehicle", link: routes.transportVehicle ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          { label: "Assign Vehicle", link: routes.transportAssignVehicle ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
         ],
       },
     ],
@@ -385,6 +484,7 @@ export const SidebarData: SidebarItem[] = [
     submenuHdr: "HRM",
     submenu: false,
     showSubRoute: false,
+    roles: ["admin", "teacher", "student", "parent", "superadmin"],
     submenuItems: [
       {
         label: "Staffs",
@@ -394,6 +494,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-users-group",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Departments",
@@ -401,6 +502,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-layout-distribute-horizontal",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Designation",
@@ -408,17 +510,25 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-user-exclamation",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Attendance",
         icon: "ti ti-calendar-share",
         submenu: true,
         showSubRoute: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "Student Attendance", link: routes.studentAttendance },
-          { label: "Teacher Attendance", link: routes.teacherAttendance },
-          { label: "Staff Attendance", link: routes.staffAttendance },
+          { label: "Student Attendance", link: routes.studentAttendance,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Teacher Attendance", link: routes.teacherAttendance,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Staff Attendance", link: routes.staffAttendance,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
         ],
       },
       {
@@ -426,10 +536,15 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-calendar-stats",
         submenu: true,
         showSubRoute: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "List of leaves", link: routes.listLeaves },
-          { label: "Approve Request", link: routes.approveRequest },
+          { label: "List of leaves", link: routes.listLeaves,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Approve Request", link: routes.approveRequest,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
         ],
       },
       {
@@ -438,6 +553,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-briefcase",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Payroll",
@@ -445,6 +561,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-moneybag",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
     ],
   },
@@ -454,24 +571,37 @@ export const SidebarData: SidebarItem[] = [
     submenuHdr: "Finance & Accounts",
     submenu: false,
     showSubRoute: false,
+    roles: ["admin", "teacher", "student", "parent", "superadmin"],
     submenuItems: [
       {
         label: "Accounts",
         icon: "ti ti-swipe",
         submenu: true,
         showSubRoute: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
         submenuItems: [
-          { label: "Expenses", link: routes.expense },
-          { label: "Expense Category", link: routes.expenseCategory },
-          { label: "Income", link: routes.accountsIncome },
+          { label: "Expenses", link: routes.expense,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Expense Category", link: routes.expenseCategory,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "Income", link: routes.accountsIncome ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
           {
             label: "Invoices",
             link: routes.accountsInvoices,
             subLink1: routes.addInvoice,
             subLink2: routes.editInvoice,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Invoice View", link: routes.invoice },
-          { label: "Transactions", link: routes.accountsTransactions },
+          { label: "Invoice View", link: routes.invoice ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          { label: "Transactions", link: routes.accountsTransactions,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
         ],
       },
     ],
@@ -482,6 +612,7 @@ export const SidebarData: SidebarItem[] = [
     submenuHdr: "Announcements",
     submenu: false,
     showSubRoute: false,
+    roles: ["admin", "teacher", "student", "parent", "superadmin"],
     submenuItems: [
       {
         label: "Notice Board",
@@ -489,6 +620,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-clipboard-data",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Events",
@@ -496,6 +628,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-calendar-question",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
     ],
   },
@@ -505,6 +638,7 @@ export const SidebarData: SidebarItem[] = [
     submenuHdr: "Reports",
     submenu: false,
     showSubRoute: false,
+    roles: ["admin", "teacher", "student", "parent", "superadmin"],
     submenuItems: [
       {
         label: "Attendance Report",
@@ -519,6 +653,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-calendar-due",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Class Report",
@@ -526,6 +661,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-graph",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Student Report",
@@ -533,6 +669,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-chart-infographic",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Grade Report",
@@ -540,6 +677,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-calendar-x",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Leave Report",
@@ -547,6 +685,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-line",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Fees Report",
@@ -554,6 +693,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-mask",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
     ],
   },
@@ -563,6 +703,8 @@ export const SidebarData: SidebarItem[] = [
     submenuHdr: "Sales",
     submenu: false,
     showSubRoute: false,
+    roles: ["admin", "teacher", "student", "parent", "superadmin"],
+    
     submenuItems: [
       {
         label: "Users",
@@ -570,6 +712,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-users-minus",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Roles & Permission",
@@ -577,6 +720,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-shield-plus",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Delete Account Request",
@@ -584,6 +728,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-user-question",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
     ],
   },
@@ -592,6 +737,7 @@ export const SidebarData: SidebarItem[] = [
     submenuOpen: true,
     showSubRoute: false,
     submenuHdr: "Finance & Accounts",
+    roles: ["admin", "teacher", "student", "parent", "superadmin"],
     submenuItems: [
       {
         label: "Membership Plans",
@@ -599,6 +745,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-user-plus",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Membership Addons",
@@ -606,6 +753,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-cone-plus",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Transactions",
@@ -613,6 +761,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-file-power",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
     ],
   },
@@ -621,33 +770,41 @@ export const SidebarData: SidebarItem[] = [
     icon: "ti ti-page-break",
     submenu: true,
     showSubRoute: false,
+    roles: ["admin", "teacher", "student", "parent", "superadmin"],
     submenuItems: [
       {
         label: "Pages",
         link: routes.pages,
         showSubRoute: false,
         icon: "ti ti-page-break",
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Blog",
         icon: "ti ti-brand-blogger",
         submenu: true,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
         submenuItems: [
-          { label: "All Blogs", link: routes.allBlogs },
+          { label: "All Blogs", link: routes.allBlogs ,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
           {
             label: "Categories",
             link: routes.blogCategories,
             icon: "ti ti-quote",
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
           {
             label: "Comments",
             link: routes.blogComments,
             icon: "ti ti-question-mark",
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
           {
             label: "Tags",
             link: routes.blogTags,
             icon: "ti ti-question-mark",
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
         ],
       },
@@ -655,13 +812,19 @@ export const SidebarData: SidebarItem[] = [
         label: "Location",
         icon: "ti ti-map-pin-search",
         submenu: true,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
         submenuItems: [
-          { label: "Countries", link: routes.countries },
-          { label: "States", link: routes.states, icon: "ti ti-quote" },
+          { label: "Countries", link: routes.countries,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
+          { label: "States", link: routes.states, icon: "ti ti-quote",
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+           },
           {
             label: "Cities",
             link: routes.cities,
             icon: "ti ti-question-mark",
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
         ],
       },
@@ -670,12 +833,14 @@ export const SidebarData: SidebarItem[] = [
         link: routes.testimonials,
         showSubRoute: false,
         icon: "ti ti-quote",
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "FAQ",
         link: routes.faq,
         showSubRoute: false,
         icon: "ti ti-question-mark",
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
     ],
   },
@@ -684,6 +849,7 @@ export const SidebarData: SidebarItem[] = [
     submenuOpen: true,
     showSubRoute: false,
     submenuHdr: "Finance & Accounts",
+    roles: ["admin", "teacher", "student", "parent", "superadmin"],
     submenuItems: [
       {
         label: "Contact Messages",
@@ -691,6 +857,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-message",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
       {
         label: "Tickets",
@@ -698,6 +865,7 @@ export const SidebarData: SidebarItem[] = [
         icon: "ti ti-ticket",
         showSubRoute: false,
         submenu: false,
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
       },
     ],
   },
