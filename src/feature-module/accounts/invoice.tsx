@@ -35,7 +35,7 @@ const Invoice = () => {
             <div className="col-md-12">
               <div className="invoice-popup-head d-flex align-items-center justify-content-between mb-4">
                 <span>
-                  <ImageWithBasePath src="assets/img/logo.svg" alt="Img" />
+                  <ImageWithBasePath src="assets/img/logo3.png" alt="Img" />
                 </span>
                 <div className="popup-title">
                   <h2>UNIVERSITY NAME</h2>
@@ -183,7 +183,10 @@ const Invoice = () => {
                     </div>
                     <div className="col-lg-6 text-end mb-4 pt-4 ">
                       <h6 className="mb-2">For Dreamguys</h6>
-                      <ImageWithBasePath src="assets/img/icons/signature.svg" alt="Img" />
+                      <ImageWithBasePath
+                        src="assets/img/icons/signature.svg"
+                        alt="Img"
+                      />
                     </div>
                   </div>
                 </div>

@@ -35,9 +35,9 @@ const TwoStepVerification2 = () => {
                     data-autosubmit="false"
                     autoComplete="off"
                   >
-                    <div className=" mx-auto mb-5 text-center">
+                    <div className=" mx-auto mb-2 text-center">
                       <ImageWithBasePath
-                        src="assets/img/authentication/authentication-logo.svg"
+                        src="assets/img/authentication/logoauth.svg"
                         className="img-fluid"
                         alt="Logo"
                       />
@@ -96,7 +96,8 @@ const TwoStepVerification2 = () => {
                               <p>Otp will expire in 09:59</p>
                             </div>
                             <div className="form-wrap mb-0">
-                              <button onClick={navigationPath}
+                              <button
+                                onClick={navigationPath}
                                 type="submit"
                                 className="btn btn-primary w-100"
                               >

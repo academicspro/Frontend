@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { all_routes } from "../../router/all_routes";
 import ImageWithBasePath from "../../../core/common/imageWithBasePath";
 
-
 const ForgotPassword2 = () => {
   const routes = all_routes;
   const navigation = useNavigate();
@@ -11,7 +10,7 @@ const ForgotPassword2 = () => {
   const navigationPath = () => {
     navigation(routes.resetPassword2);
   };
-  
+
   return (
     <>
       <div className="container-fuild">
@@ -34,7 +33,7 @@ const ForgotPassword2 = () => {
                     <div>
                       <div className=" mx-auto mb-5 text-center">
                         <ImageWithBasePath
-                          src="assets/img/authentication/authentication-logo.svg"
+                          src="assets/img/authentication/logoauth.svg"
                           className="img-fluid"
                           alt="Logo"
                         />
@@ -54,15 +53,12 @@ const ForgotPassword2 = () => {
                               <span className="input-icon-addon">
                                 <i className="ti ti-mail" />
                               </span>
-                              <input
-                                type="text"
-                                
-                                className="form-control"
-                              />
+                              <input type="text" className="form-control" />
                             </div>
                           </div>
                           <div className="mb-3">
-                            <button onClick={navigationPath}
+                            <button
+                              onClick={navigationPath}
                               type="submit"
                               className="btn btn-primary w-100"
                             >

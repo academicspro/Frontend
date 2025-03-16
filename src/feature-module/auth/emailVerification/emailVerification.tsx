@@ -91,9 +91,9 @@ const EmailVerification = () => {
               <div className="col-md-9 mx-auto p-4">
                 <form>
                   <div>
-                    <div className=" mx-auto mb-5 text-center">
+                    <div className=" mx-auto mb-2 text-center">
                       <ImageWithBasePath
-                        src="assets/img/authentication/authentication-logo.svg"
+                        src="assets/img/authentication/logoauth.svg"
                         className="img-fluid"
                         alt="Logo"
                       />

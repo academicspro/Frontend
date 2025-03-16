@@ -60,15 +60,13 @@ const Header = () => {
   const toggleFullscreen = () => {
     if (!isFullscreen) {
       if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen().catch((err) => {
-        });
+        document.documentElement.requestFullscreen().catch((err) => {});
         setIsFullscreen(true);
       }
     } else {
       if (document.exitFullscreen) {
         if (document.fullscreenElement) {
-          document.exitFullscreen().catch((err) => {
-          });
+          document.exitFullscreen().catch((err) => {});
         }
         setIsFullscreen(false);
       }
@@ -86,7 +84,7 @@ const Header = () => {
           onMouseLeave={onMouseLeave}
         >
           <Link to={routes.adminDashboard} className="logo logo-normal">
-            <ImageWithBasePath src="assets/img/logo.svg" alt="Logo" />
+            <ImageWithBasePath src="assets/img/logo3.png" alt="Logo" />
           </Link>
           <Link to={routes.adminDashboard} className="logo-small">
             <ImageWithBasePath src="assets/img/logo-small.svg" alt="Logo" />
@@ -391,7 +389,7 @@ const Header = () => {
                               <p className="mb-1">
                                 <span className="text-dark fw-semibold">
                                   Shawn
-                                </span>{' '}
+                                </span>{" "}
                                 performance in Math is below the threshold.
                               </p>
                               <span>Just Now</span>
@@ -481,7 +479,10 @@ const Header = () => {
                     <Link to="#" className="btn btn-light w-100 me-2">
                       Cancel
                     </Link>
-                    <Link to={routes.activity} className="btn btn-primary w-100">
+                    <Link
+                      to={routes.activity}
+                      className="btn btn-primary w-100"
+                    >
                       View All
                     </Link>
                   </div>

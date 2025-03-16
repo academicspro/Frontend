@@ -108,7 +108,7 @@ const Register = () => {
                     <div>
                       <div className=" mx-auto mb-5 text-center">
                         <ImageWithBasePath
-                          src="assets/img/authentication/authentication-logo.svg"
+                          src="assets/img/authentication/logoauth.svg"
                           className="img-fluid"
                           alt="Logo"
                         />

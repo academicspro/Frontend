@@ -19,7 +19,7 @@ const EmailVerification3 = () => {
               <div className="d-flex flex-column justify-content-between vh-100">
                 <div className=" mx-auto p-4 text-center">
                   <ImageWithBasePath
-                    src="assets/img/authentication/authentication-logo.svg"
+                    src="assets/img/authentication/logoauth.svg"
                     className="img-fluid"
                     alt="Logo"
                   />
@@ -42,7 +42,11 @@ const EmailVerification3 = () => {
                         </Link>
                       </h6>
                     </div>
-                    <button type="submit" className="btn btn-primary w-100" onClick={navigationPath}>
+                    <button
+                      type="submit"
+                      className="btn btn-primary w-100"
+                      onClick={navigationPath}
+                    >
                       Skip Now
                     </button>
                   </div>

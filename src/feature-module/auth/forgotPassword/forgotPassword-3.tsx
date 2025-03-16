@@ -10,7 +10,7 @@ const ForgotPassword3 = () => {
   const navigationPath = () => {
     navigation(routes.resetPassword3);
   };
-  
+
   return (
     <>
       <div className="container">
@@ -20,7 +20,7 @@ const ForgotPassword3 = () => {
               <div className="d-flex flex-column justify-content-between vh-100">
                 <div className=" mx-auto p-4 text-center">
                   <ImageWithBasePath
-                    src="assets/img/authentication/authentication-logo.svg"
+                    src="assets/img/authentication/logoauth.svg"
                     className="img-fluid"
                     alt="Logo"
                   />
@@ -40,14 +40,15 @@ const ForgotPassword3 = () => {
                         <span className="input-icon-addon">
                           <i className="ti ti-mail" />
                         </span>
-                        <input
-                          type="text"
-                          className="form-control"
-                        />
+                        <input type="text" className="form-control" />
                       </div>
                     </div>
                     <div className="mb-3">
-                      <button type="submit" className="btn btn-primary w-100" onClick={navigationPath}>
+                      <button
+                        type="submit"
+                        className="btn btn-primary w-100"
+                        onClick={navigationPath}
+                      >
                         Sign In
                       </button>
                     </div>

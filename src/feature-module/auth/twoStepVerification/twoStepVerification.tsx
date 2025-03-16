@@ -99,7 +99,7 @@ const TwoStepVerification = () => {
                 >
                   <div className=" mx-auto mb-5 text-center">
                     <ImageWithBasePath
-                      src="assets/img/authentication/authentication-logo.svg"
+                      src="assets/img/authentication/logoauth.svg"
                       className="img-fluid"
                       alt="Logo"
                     />
@@ -156,7 +156,8 @@ const TwoStepVerification = () => {
                             <p>Otp will expire in 09:59</p>
                           </div>
                           <div className="form-wrap mb-0">
-                            <button onClick={navigationPath}
+                            <button
+                              onClick={navigationPath}
                               type="submit"
                               className="btn btn-primary w-100"
                             >

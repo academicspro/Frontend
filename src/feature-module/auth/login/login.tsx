@@ -35,7 +35,7 @@ const Login = () => {
         case "admin":
           navigate(all_routes.adminDashboard);
           break;
-          case "superadmin":
+        case "superadmin":
           navigate(all_routes.superAdminDashboard);
           break;
         case "teacher":
@@ -63,7 +63,10 @@ const Login = () => {
           <div className="col-lg-6">
             <div className="login-background d-lg-flex align-items-center justify-content-center d-lg-block d-none flex-wrap vh-100 overflowy-auto">
               <div>
-                <ImageWithBasePath src="assets/img/authentication/authentication-02.jpg" alt="" />
+                <ImageWithBasePath
+                  src="assets/img/authentication/authentication-02.jpg"
+                  alt=""
+                />
               </div>
               <div className="authen-overlay-item  w-100 p-4">
                 <h4 className="text-white mb-3">What's New on Preskool !!!</h4>
@@ -74,7 +77,9 @@ const Login = () => {
                       The school will remain closed from April 20th to June...
                     </p>
                   </div>
-                  <Link to="#"><i className="ti ti-chevrons-right" /></Link>
+                  <Link to="#">
+                    <i className="ti ti-chevrons-right" />
+                  </Link>
                 </div>
                 <div className="d-flex align-items-center flex-row mb-3 justify-content-between p-3 br-5 gap-3 card">
                   <div>
@@ -83,7 +88,9 @@ const Login = () => {
                       The school will remain closed from April 20th to June...
                     </p>
                   </div>
-                  <Link to="#"><i className="ti ti-chevrons-right" /></Link>
+                  <Link to="#">
+                    <i className="ti ti-chevrons-right" />
+                  </Link>
                 </div>
                 <div className="d-flex align-items-center flex-row mb-3 justify-content-between p-3 br-5 gap-3 card">
                   <div>
@@ -92,7 +99,9 @@ const Login = () => {
                       The school will remain closed from April 20th to June...
                     </p>
                   </div>
-                  <Link to="#"><i className="ti ti-chevrons-right" /></Link>
+                  <Link to="#">
+                    <i className="ti ti-chevrons-right" />
+                  </Link>
                 </div>
                 <div className="d-flex align-items-center flex-row mb-3 justify-content-between p-3 br-5 gap-3 card">
                   <div>
@@ -101,7 +110,9 @@ const Login = () => {
                       The school will remain closed from April 20th to June...
                     </p>
                   </div>
-                  <Link to="#"><i className="ti ti-chevrons-right" /></Link>
+                  <Link to="#">
+                    <i className="ti ti-chevrons-right" />
+                  </Link>
                 </div>
                 <div className="d-flex align-items-center flex-row mb-3 justify-content-between p-3 br-5 gap-3 card">
                   <div>
@@ -110,7 +121,9 @@ const Login = () => {
                       The school will remain closed from April 20th to June...
                     </p>
                   </div>
-                  <Link to="#"><i className="ti ti-chevrons-right" /></Link>
+                  <Link to="#">
+                    <i className="ti ti-chevrons-right" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -121,9 +134,9 @@ const Login = () => {
               <div className="col-md-8 mx-auto p-4">
                 <form onSubmit={handleSubmit}>
                   <div>
-                    <div className="mx-auto mb-5 text-center">
+                    <div className="mx-auto mb-2 text-center">
                       <ImageWithBasePath
-                        src="assets/img/authentication/authentication-logo.svg"
+                        src="assets/img/authentication/logoauth.svg"
                         className="img-fluid"
                         alt="Logo"
                       />
@@ -132,15 +145,21 @@ const Login = () => {
                       <div className="card-body pb-3">
                         <div className="mb-4">
                           <h2 className="mb-2">Welcome</h2>
-                          <p className="mb-0">Please enter your details to sign in</p>
+                          <p className="mb-0">
+                            Please enter your details to sign in
+                          </p>
                         </div>
 
-                        {error && <div className="alert alert-danger">{error}</div>}
+                        {error && (
+                          <div className="alert alert-danger">{error}</div>
+                        )}
 
                         <div className="mb-3">
                           <label className="form-label">Email Address</label>
                           <div className="input-icon mb-3 position-relative">
-                            <span className="input-icon-addon"><i className="ti ti-mail" /></span>
+                            <span className="input-icon-addon">
+                              <i className="ti ti-mail" />
+                            </span>
                             <input
                               type="email"
                               className="form-control"
@@ -159,7 +178,9 @@ const Login = () => {
                               required
                             />
                             <span
-                              className={`ti toggle-password ${isPasswordVisible ? "ti-eye" : "ti-eye-off"}`}
+                              className={`ti toggle-password ${
+                                isPasswordVisible ? "ti-eye" : "ti-eye-off"
+                              }`}
                               onClick={togglePasswordVisibility}
                             />
                           </div>
@@ -168,26 +189,39 @@ const Login = () => {
                         <div className="form-wrap form-wrap-checkbox">
                           <div className="d-flex align-items-center">
                             <div className="form-check form-check-md mb-0">
-                              <input className="form-check-input mt-0" type="checkbox" />
+                              <input
+                                className="form-check-input mt-0"
+                                type="checkbox"
+                              />
                             </div>
                             <p className="ms-1 mb-0">Remember Me</p>
                           </div>
                           <div className="text-end">
-                            <Link to={all_routes.forgotPassword} className="link-danger">Forgot Password?</Link>
+                            <Link
+                              to={all_routes.forgotPassword}
+                              className="link-danger"
+                            >
+                              Forgot Password?
+                            </Link>
                           </div>
                         </div>
                       </div>
 
                       <div className="p-4 pt-0">
                         <div className="mb-3">
-                          <button type="submit" className="btn btn-primary w-100">
+                          <button
+                            type="submit"
+                            className="btn btn-primary w-100"
+                          >
                             Sign In
                           </button>
                         </div>
                         <div className="text-center">
                           <h6 className="fw-normal text-dark mb-0">
                             Don’t have an account?{" "}
-                            <Link to={all_routes.register} className="hover-a">Create Account</Link>
+                            <Link to={all_routes.register} className="hover-a">
+                              Create Account
+                            </Link>
                           </h6>
                         </div>
                       </div>
