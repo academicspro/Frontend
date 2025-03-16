@@ -25,7 +25,7 @@ const TwoStepVerification3 = () => {
               <div className="d-flex flex-column justify-content-between vh-100">
                 <div className=" mx-auto p-4 text-center">
                   <ImageWithBasePath
-                    src="assets/img/authentication/authentication-logo.svg"
+                    src="assets/img/authentication/logoauth.svg"
                     className="img-fluid"
                     alt="Logo"
                   />
@@ -82,7 +82,8 @@ const TwoStepVerification3 = () => {
                           <p>Otp will expire in 09:59</p>
                         </div>
                         <div className="form-wrap mb-0">
-                          <button onClick={navigationPath}
+                          <button
+                            onClick={navigationPath}
                             type="submit"
                             className="btn btn-primary w-100"
                           >

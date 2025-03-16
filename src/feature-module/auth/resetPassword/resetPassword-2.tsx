@@ -46,7 +46,7 @@ const ResetPassword2 = () => {
                     <div>
                       <div className=" mx-auto mb-5 text-center">
                         <ImageWithBasePath
-                          src="assets/img/authentication/authentication-logo.svg"
+                          src="assets/img/authentication/logoauth.svg"
                           className="img-fluid"
                           alt="Logo"
                         />
@@ -132,7 +132,8 @@ const ResetPassword2 = () => {
                             </div>
                           </div>
                           <div className="mb-3">
-                            <button onClick={navigationPath}
+                            <button
+                              onClick={navigationPath}
                               type="submit"
                               className="btn btn-primary w-100"
                             >

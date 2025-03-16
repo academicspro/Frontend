@@ -30,7 +30,7 @@ const Login3 = () => {
               <div className="d-flex flex-column justify-content-between vh-100">
                 <div className=" mx-auto p-4 text-center">
                   <ImageWithBasePath
-                    src="assets/img/authentication/authentication-logo.svg"
+                    src="assets/img/authentication/logoauth.svg"
                     className="img-fluid"
                     alt="Logo"
                   />
@@ -123,7 +123,10 @@ const Login3 = () => {
                         <p className="ms-1 mb-0 ">Remember Me</p>
                       </div>
                       <div className="text-end ">
-                        <Link to={routes.forgotPassword} className="link-danger">
+                        <Link
+                          to={routes.forgotPassword}
+                          className="link-danger"
+                        >
                           Forgot Password?
                         </Link>
                       </div>

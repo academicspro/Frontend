@@ -12,7 +12,7 @@ const UnderMaintenance = () => {
           <div className="d-flex flex-column justify-content-between vh-100">
             <div className="text-center p-4">
               <ImageWithBasePath
-                src="assets/img/logo.svg"
+                src="assets/img/logo3.png"
                 alt="img"
                 className="img-fluid"
               />

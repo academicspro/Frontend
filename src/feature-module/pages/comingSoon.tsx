@@ -21,7 +21,11 @@ const ComingSoon = () => {
   return (
     <div className="main-wrapper">
       <div className="text-center mt-4">
-        <ImageWithBasePath src="assets/img/logo.svg" alt="img" className="img-fluid" />
+        <ImageWithBasePath
+          src="assets/img/logo3.png"
+          alt="img"
+          className="img-fluid"
+        />
       </div>
       <div className="comming-soon-pg w-100">
         <div>
@@ -56,7 +60,9 @@ const ComingSoon = () => {
             <li className="text-gray fw-medium me-sm-3 me-2">:</li>
             <li>
               <div className="d-flex align-items-center justify-content-center flex-column border rounded bg-white px-sm-4 py-sm-3 p-2">
-                <h3 className="seconds fs-sm-30 fs-30">{formatTime(seconds)}</h3>
+                <h3 className="seconds fs-sm-30 fs-30">
+                  {formatTime(seconds)}
+                </h3>
                 <p className="fs-16">Sec</p>
               </div>
             </li>
