@@ -1,7 +1,7 @@
 const developmentConfig = {
   BASE_URL: "http://localhost:3000",
   apiGateway: {
-    BASE_URL: "https://academicspro-production.up.railway.app/api/v1",
+    BASE_URL: "http://localhost:5000/api/v1",
   },
 };
 
@@ -27,8 +27,8 @@ const baseConfig =
   process.env.REACT_APP_STAGE === prod
     ? productionConfig
     : process.env.REACT_APP_STAGE === uat
-    ? uatConfig
-    : developmentConfig;
+      ? uatConfig
+      : developmentConfig;
 
 const AppConfig = {
   APP_NAME: "ACADEMICS PRO",

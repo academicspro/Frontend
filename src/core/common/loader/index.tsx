@@ -1,41 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom"; // Assuming you're using React Router
-import { all_routes } from "../../../feature-module/router/all_routes";
+import { all_routes } from "../../../router/all_routes";
 
-const Loader = () => {
-  const routes = all_routes
+const Loader = ({ children }: { children: React.ReactNode }) => {
+  const routes = all_routes;
   const location = useLocation();
-  const [showLoader, setShowLoader] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
 
   useEffect(() => {
-      
-
-    if (location.pathname === routes.adminDashboard || location.pathname === routes.teacherDashboard 
-      || location.pathname === routes.studentDashboard || location.pathname === routes.parentDashboard  || location.pathname === routes.superAdminDashboard
+    if (
+      location.pathname === routes.adminDashboard ||
+      location.pathname === routes.teacherDashboard ||
+      location.pathname === routes.studentDashboard ||
+      location.pathname === routes.parentDashboard ||
+      location.pathname === routes.superAdminDashboard
     ) {
-      
-      // Show the loader when navigating to a new route
       setShowLoader(true);
-
-      // Hide the loader after 2 seconds
-      const timeoutId = setTimeout(() => {
-        setShowLoader(false);
-      }, 2000);
-
-      return () => {
-        clearTimeout(timeoutId); // Clear the timeout when component unmounts
-      };
-    }else {
-      setShowLoader(false)
+    } else {
+      setShowLoader(false);
     }
   }, [location.pathname]);
+
+  useEffect(() => {
+    const handleLoad = () => {
+      setShowLoader(false);
+    };
+
+    window.addEventListener("load", handleLoad);
+
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
+  }, []);
 
   return (
     <>
       {showLoader && <Preloader />}
-      <div>
-        {/* Your other content goes here */}
-      </div>
+      {!showLoader && <>{children}</>}
     </>
   );
 };
@@ -43,8 +44,8 @@ const Loader = () => {
 const Preloader = () => {
   return (
     <div id="global-loader">
-		<div className="page-loader"></div>
-	</div>
+      <div className="page-loader"></div>
+    </div>
   );
 };
 

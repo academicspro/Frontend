@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "learnxchain-frontend",
   "version": "0.1.0",
   "homepage": "/",
   "private": true,
@@ -58,6 +58,7 @@
     "react-tag-input": "^6.10.3",
     "react-tag-input-component": "^2.0.2",
     "react-time-picker": "^6.6.0",
+    "react-toastify": "^11.0.5",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.83.0",
     "slick-carousel": "^1.8.1",

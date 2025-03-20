@@ -1243,3 +1243,13 @@ export const studentsnumber = [
   { value: "35", label: "35" },
   { value: "40", label: "40" },
 ]
+
+
+
+// LearnXChain
+
+export const sex = [
+  {value:"MALE", label:"MALE"},
+  {value:"FEMALE", label:"FEMALE"},
+  {value:"OTHERS", label:"OTHERS"},
+]
