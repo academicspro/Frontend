@@ -336,11 +336,7 @@ export const Contract = [
   { value: "Permanent", label: "Permanent" },
   { value: "Temporary", label: "Temporary" },
 ];
-export const bloodGroup = [
-  { value: "O +ve", label: "O +ve" },
-  { value: "O -ve", label: "O -ve" },
-  { value: "B +ve", label: "B +ve" },
-];
+
 export const house = [
   { value: "Red", label: "Red" },
   { value: "Blue", label: "Blue" },
@@ -1253,3 +1249,10 @@ export const sex = [
   {value:"FEMALE", label:"FEMALE"},
   {value:"OTHERS", label:"OTHERS"},
 ]
+
+
+export const bloodGroup = [
+  { value: "O +ve", label: "O +ve" },
+  { value: "O -ve", label: "O -ve" },
+  { value: "B +ve", label: "B +ve" },
+];

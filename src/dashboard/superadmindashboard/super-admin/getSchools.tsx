@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Table from "../../../../core/common/dataTable/index"; // Adjust path as needed
-import CommonSelect from "../../../../core/common/commonSelect"; // Adjust path as needed
-import PredefinedDateRanges from "../../../../core/common/datePicker"; // Adjust path as needed
-import TooltipOption from "../../../../core/common/tooltipOption"; // Adjust path as needed
-import { all_routes } from "../../../../router/all_routes"; // Adjust path as needed
-import { page } from "../../../../core/common/selectoption/selectoption"; // Adjust path as needed
+import Table from "../../../core/common/dataTable/index"; // Adjust path as needed
+import CommonSelect from "../../../core/common/commonSelect"; // Adjust path as needed
+import PredefinedDateRanges from "../../../core/common/datePicker"; // Adjust path as needed
+import TooltipOption from "../../../core/common/tooltipOption"; // Adjust path as needed
+import { all_routes } from "../../../router/all_routes"; // Adjust path as needed
+import { page } from "../../../core/common/selectoption/selectoption"; // Adjust path as needed
 
 // Define the type for school data
 type School = {

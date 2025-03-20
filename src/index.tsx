@@ -21,11 +21,11 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter basename={base_path}>
-        <ALLRoutes />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>
+
+  <Provider store={store}>
+    <BrowserRouter basename={base_path}>
+      <ALLRoutes />
+    </BrowserRouter>
+  </Provider>
+
 );

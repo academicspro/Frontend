@@ -38,3 +38,19 @@ export interface IGetUserProfileResponse {
   errors: string;
 }
  
+
+export interface IRegisterSchool {
+  schoolName: string;
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  city: string;
+  state: string;
+  country: string;
+  pincode: string;
+  sex: string;
+  bloodType: string;
+  profilePic: string;
+  
+}
