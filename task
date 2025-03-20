@@ -1,0 +1,31 @@
+Permission Module
+
+Admin Register Get Empty Dashboard 
+
+Admin reguest Features 
+
+Super Administrator can approve and rejact thier request ==> if Possible Set Pricing Permodule
+
+Admin Can share there Permission With Teacher or any OTher which are unser a school
+
+
+create it's Both FE and BE
+
+# Super Admin Work 
+
+1. Register School  => With All CURD Operation 
+2. Create Plan = > With All Curd Operation 
+3. Can Approve and Reject Feedback if Approved it is public if rejected save them in draft 
+4. Todo => With All Curd Operation 
+5. Can Add Employees  With all CURD Operation 
+6. View Ticker And change status of them 
+7. Payment Gateway setup thorough Dashboard 
+8. Approve or Reject Leave Request 
+
+
+# Admin Work 
+
+
+
+
+

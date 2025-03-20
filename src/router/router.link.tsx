@@ -102,8 +102,8 @@ import StudentTimeTable from "../dashboard/adminDashboard/peoples/students/stude
 import StudentGrid from "../dashboard/adminDashboard/peoples/students/student-grid";
 import StudentList from "../dashboard/adminDashboard/peoples/students/student-list";
 import StudentPromotion from "../dashboard/adminDashboard/peoples/students/student-promotion";
-import GetSchools from "../dashboard/adminDashboard/peoples/super-admin/getSchools";
-import RegisterSchool from "../dashboard/adminDashboard/peoples/super-admin/registerSchools";
+import GetSchools from "../dashboard/superadmindashboard/super-admin/getSchools";
+import RegisterSchool from "../dashboard/superadmindashboard/super-admin/registerSchools";
 import TeacherDetails from "../dashboard/adminDashboard/peoples/teacher/teacher-details/teacherDetails";
 import TeacherLeave from "../dashboard/adminDashboard/peoples/teacher/teacher-details/teacherLeave";
 import TeacherLibrary from "../dashboard/adminDashboard/peoples/teacher/teacher-details/teacherLibrary";
@@ -237,6 +237,9 @@ import Calendar from "../apps/calendar";
 
 import DataTable from "../components/uiInterface/table/data-tables";
 import Storage from "../dashboard/superadmindashboard/settings/otherSettings/storage";
+
+// Admin pages
+import AdminRequestFetauresPage from "../dashboard/adminDashboard/pages/AdminRequestFetauresPage";
 
 
 
@@ -519,6 +522,11 @@ export const publicRoutes = [
   {
     path: routes.adminDashboard,
     element: <AdminDashboard />,
+    route: Route,
+  },
+  {
+    path: routes.requestFeatures,
+    element: <AdminRequestFetauresPage />,
     route: Route,
   },
   {

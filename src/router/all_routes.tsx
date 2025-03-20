@@ -327,9 +327,9 @@ export const all_routes = {
 
 
     // Super Admin
-
     addSchools: "/super-admin/add-schools",
-  
-
     getSchools: "/super-admin/get-schools",
+
+    // Admin Routes
+    requestFeatures: "/admin/request-features",
 };
