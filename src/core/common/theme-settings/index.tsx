@@ -8,7 +8,7 @@ import {
   setDataSidebarBg,
   setDataTheme,
   setTopBarColor,
-} from "../../data/redux/themeSettingSlice";
+} from "../../../Store/themeSettingSlice";
 import { Link } from "react-router-dom";
 import ImageWithBasePath from "../imageWithBasePath";
 

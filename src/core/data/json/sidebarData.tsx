@@ -1,4 +1,4 @@
-import { all_routes } from "../../../feature-module/router/all_routes";
+import { all_routes } from "../../../router/all_routes";
 const routes = all_routes;
 
 export type SidebarItem = {
@@ -9,7 +9,7 @@ export type SidebarItem = {
   link?: string;
   submenuOpen?: boolean;
   themeSetting?: boolean;
-  roles?: string[]; 
+  roles?: string[];
   submenuItems?: SidebarItem[];
   submenuHdr?: string;
   subLink1?: string;
@@ -31,7 +31,7 @@ export const SidebarData: SidebarItem[] = [
     submenuHdr: "Main",
     roles: ["admin", "teacher", "student", "parent", "superadmin"],
     submenuItems: [
-      {label: "Super Admin Dashboard", icon: "ti ti-layout-dashboard", link: routes.superAdminDashboard, roles: ["superadmin"]},
+      { label: "Super Admin Dashboard", icon: "ti ti-layout-dashboard", link: routes.superAdminDashboard, roles: ["superadmin"] },
       { label: "Admin Dashboard", icon: "ti ti-layout-dashboard", link: routes.adminDashboard, roles: ["admin"] },
       { label: "Teacher Dashboard", icon: "ti ti-layout-dashboard", link: routes.teacherDashboard, roles: ["teacher"] },
       { label: "Student Dashboard", icon: "ti ti-layout-dashboard", link: routes.studentDashboard, roles: ["student"] },
@@ -39,34 +39,34 @@ export const SidebarData: SidebarItem[] = [
       {
         label: "Application",
         icon: "ti ti-layout-list",
-        roles: ["admin", "teacher", "student", "parent","superadmin"],
+        roles: ["admin", "teacher", "student", "parent", "superadmin"],
         submenu: true,
         showSubRoute: false,
         submenuItems: [
           {
             label: "Chat",
             link: routes.chat,
-            roles: ["admin", "teacher", "student", "parent","superadmin"],
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
             showSubRoute: false,
           },
           {
             label: "Call",
             link: routes.audioCall,
             showSubRoute: false,
-            roles: ["admin","superadmin"],
+            roles: ["admin", "superadmin"],
           },
           {
             label: "Calendar",
             link: routes.calendar,
             showSubRoute: false,
-            roles: ["teacher","superadmin"],
+            roles: ["teacher", "superadmin"],
           },
           {
             label: "Email",
             link: routes.email,
             showSubRoute: false,
-            roles: ["admin", "teacher", "student", "parent", "superadmin"],
-            
+            roles: ["admin", "teacher", "student", "parent",],
+
           },
           {
             label: "To Do",
@@ -84,10 +84,34 @@ export const SidebarData: SidebarItem[] = [
             label: "File Manager",
             link: routes.fileManager,
             showSubRoute: false,
-            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+            roles: ["admin", "teacher", "student", "parent",],
           },
         ],
       },
+    ],
+  },
+  {
+    label: "Registration",
+    icon: "ti ti-page-break",
+    submenu: true,
+    showSubRoute: false,
+    roles: ["superadmin"],
+    submenuItems: [
+      {
+        label: "Register School",
+        link: routes.addSchools,
+        showSubRoute: false,
+        icon: "ti ti-page-break",
+        roles: ["superadmin"],
+      },
+      {
+        label: "Get All Schools",
+        link: routes.getSchools,
+        showSubRoute: false,
+        icon: "ti ti-page-break",
+        roles: ["superadmin"],
+      },
+
     ],
   },
   {
@@ -95,7 +119,7 @@ export const SidebarData: SidebarItem[] = [
     submenuOpen: false,
     showSubRoute: false,
     submenuHdr: "LAYOUT",
-    
+
     submenuItems: [
       {
         label: "Default",
@@ -144,7 +168,7 @@ export const SidebarData: SidebarItem[] = [
     submenuOpen: true,
     showSubRoute: false,
     submenuHdr: "Peoples",
-    roles: ["admin", "teacher", "student", "parent", "superadmin"],
+    roles: ["admin", "teacher", "student", "parent",],
 
     submenuItems: [
       {
@@ -162,9 +186,10 @@ export const SidebarData: SidebarItem[] = [
             subLink2: routes.editStudent,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Students List", link: routes.studentList,
+          {
+            label: "Students List", link: routes.studentList,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
+          },
           {
             label: "Students Details",
             link: routes.studentDetail,
@@ -175,9 +200,10 @@ export const SidebarData: SidebarItem[] = [
             subLink5: routes.studentTimeTable,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Student Promotion", link: routes.studentPromotion,
+          {
+            label: "Student Promotion", link: routes.studentPromotion,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
+          },
         ],
       },
       {
@@ -187,12 +213,14 @@ export const SidebarData: SidebarItem[] = [
         submenu: true,
         roles: ["admin", "teacher", "student", "parent", "superadmin"],
         submenuItems: [
-          { label: "All Parents", link: routes.parentGrid,
+          {
+            label: "All Parents", link: routes.parentGrid,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Parents List", link: routes.parentList,
+          },
+          {
+            label: "Parents List", link: routes.parentList,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
+          },
         ],
       },
       {
@@ -202,10 +230,12 @@ export const SidebarData: SidebarItem[] = [
         submenu: true,
         roles: ["admin", "teacher", "student", "parent", "superadmin"],
         submenuItems: [
-          { label: "All Guardians", link: routes.guardiansGrid,
+          {
+            label: "All Guardians", link: routes.guardiansGrid,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Guardians List", link: routes.guardiansList ,
+          },
+          {
+            label: "Guardians List", link: routes.guardiansList,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
         ],
@@ -221,23 +251,25 @@ export const SidebarData: SidebarItem[] = [
             label: "All Teachers",
             link: routes.teacherGrid,
             subLink1: routes.addTeacher,
-            subLink2: routes.editTeacher, 
+            subLink2: routes.editTeacher,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Teacher List", link: routes.teacherList ,
+          {
+            label: "Teacher List", link: routes.teacherList,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
+          },
           {
             label: "Teacher Details",
             link: routes.teacherDetails,
             subLink1: routes.teacherLibrary,
             subLink2: routes.teacherSalary,
-            subLink3: routes.teacherLeaves, 
+            subLink3: routes.teacherLeaves,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Routine", link: routes.teachersRoutine ,
+          {
+            label: "Routine", link: routes.teachersRoutine,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
+          },
         ],
       },
     ],
@@ -247,7 +279,7 @@ export const SidebarData: SidebarItem[] = [
     submenuOpen: true,
     showSubRoute: false,
     submenuHdr: "Academic",
-    roles: ["admin", "teacher", "student", "parent", "superadmin"],
+    roles: ["admin", "teacher", "student", "parent",],
 
     submenuItems: [
       {
@@ -258,10 +290,12 @@ export const SidebarData: SidebarItem[] = [
         roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "All Classes", link: routes.classes ,
+          {
+            label: "All Classes", link: routes.classes,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Schedule", link: routes.sheduleClasses ,
+          {
+            label: "Schedule", link: routes.sheduleClasses,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
         ],
@@ -330,23 +364,28 @@ export const SidebarData: SidebarItem[] = [
         roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "Exam", link: routes.exam ,
+          {
+            label: "Exam", link: routes.exam,
 
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Exam Schedule", link: routes.examSchedule,
-
-            roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Grade", link: routes.grade,
-
-            roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Exam Attendance", link: routes.examAttendance ,
+          {
+            label: "Exam Schedule", link: routes.examSchedule,
 
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Exam Results", link: routes.examResult ,
+          {
+            label: "Grade", link: routes.grade,
+
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          {
+            label: "Exam Attendance", link: routes.examAttendance,
+
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          {
+            label: "Exam Results", link: routes.examResult,
 
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
@@ -368,7 +407,7 @@ export const SidebarData: SidebarItem[] = [
     submenuHdr: "Management",
     submenu: false,
     showSubRoute: false,
-    roles: ["admin", "teacher", "student", "parent", "superadmin"],
+    roles: ["admin", "teacher", "student", "parent",],
     submenuItems: [
       {
         label: "Fees Collection",
@@ -377,21 +416,26 @@ export const SidebarData: SidebarItem[] = [
         showSubRoute: false,
 
         submenuItems: [
-          { label: "Fees Group", link: routes.feesGroup ,
+          {
+            label: "Fees Group", link: routes.feesGroup,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Fees Type", link: routes.feesType,
-            roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Fees Master", link: routes.feesMaster,
-            roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Fees Assign", link: routes.feesAssign ,
+          {
+            label: "Fees Type", link: routes.feesType,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Collect Fees", link: routes.collectFees,
+          {
+            label: "Fees Master", link: routes.feesMaster,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
+          },
+          {
+            label: "Fees Assign", link: routes.feesAssign,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          {
+            label: "Collect Fees", link: routes.collectFees,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
         ],
       },
       {
@@ -402,16 +446,20 @@ export const SidebarData: SidebarItem[] = [
         roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "Library Members", link: routes.libraryMembers,
-            roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Books", link: routes.libraryBooks ,
+          {
+            label: "Library Members", link: routes.libraryMembers,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Issue Book", link: routes.libraryIssueBook ,
+          {
+            label: "Books", link: routes.libraryBooks,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Return", link: routes.libraryReturn ,
+          {
+            label: "Issue Book", link: routes.libraryIssueBook,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          {
+            label: "Return", link: routes.libraryReturn,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
         ],
@@ -440,13 +488,16 @@ export const SidebarData: SidebarItem[] = [
         roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "Hostel List", link: routes.hostelList ,
+          {
+            label: "Hostel List", link: routes.hostelList,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Hostel Rooms", link: routes.hostelRoom ,
+          {
+            label: "Hostel Rooms", link: routes.hostelRoom,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Room Type", link: routes.hostelType ,
+          {
+            label: "Room Type", link: routes.hostelType,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
         ],
@@ -459,19 +510,24 @@ export const SidebarData: SidebarItem[] = [
         roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "Routes", link: routes.transportRoutes,
-            roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Pickup Points", link: routes.transportPickupPoints,
-            roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Vehicle Drivers", link: routes.transportVehicleDrivers ,
+          {
+            label: "Routes", link: routes.transportRoutes,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Vehicle", link: routes.transportVehicle ,
+          {
+            label: "Pickup Points", link: routes.transportPickupPoints,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Assign Vehicle", link: routes.transportAssignVehicle ,
+          {
+            label: "Vehicle Drivers", link: routes.transportVehicleDrivers,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          {
+            label: "Vehicle", link: routes.transportVehicle,
+            roles: ["admin", "teacher", "student", "parent", "superadmin"],
+          },
+          {
+            label: "Assign Vehicle", link: routes.transportAssignVehicle,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
         ],
@@ -520,15 +576,18 @@ export const SidebarData: SidebarItem[] = [
         roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "Student Attendance", link: routes.studentAttendance,
+          {
+            label: "Student Attendance", link: routes.studentAttendance,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Teacher Attendance", link: routes.teacherAttendance,
+          },
+          {
+            label: "Teacher Attendance", link: routes.teacherAttendance,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Staff Attendance", link: routes.staffAttendance,
+          },
+          {
+            label: "Staff Attendance", link: routes.staffAttendance,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
+          },
         ],
       },
       {
@@ -539,12 +598,14 @@ export const SidebarData: SidebarItem[] = [
         roles: ["admin", "teacher", "student", "parent", "superadmin"],
 
         submenuItems: [
-          { label: "List of leaves", link: routes.listLeaves,
+          {
+            label: "List of leaves", link: routes.listLeaves,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Approve Request", link: routes.approveRequest,
+          },
+          {
+            label: "Approve Request", link: routes.approveRequest,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
+          },
         ],
       },
       {
@@ -580,13 +641,16 @@ export const SidebarData: SidebarItem[] = [
         showSubRoute: false,
         roles: ["admin", "teacher", "student", "parent", "superadmin"],
         submenuItems: [
-          { label: "Expenses", link: routes.expense,
+          {
+            label: "Expenses", link: routes.expense,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Expense Category", link: routes.expenseCategory,
+          },
+          {
+            label: "Expense Category", link: routes.expenseCategory,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "Income", link: routes.accountsIncome ,
+          },
+          {
+            label: "Income", link: routes.accountsIncome,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
           {
@@ -596,12 +660,14 @@ export const SidebarData: SidebarItem[] = [
             subLink2: routes.editInvoice,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Invoice View", link: routes.invoice ,
+          {
+            label: "Invoice View", link: routes.invoice,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
-          { label: "Transactions", link: routes.accountsTransactions,
+          {
+            label: "Transactions", link: routes.accountsTransactions,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
+          },
         ],
       },
     ],
@@ -638,7 +704,7 @@ export const SidebarData: SidebarItem[] = [
     submenuHdr: "Reports",
     submenu: false,
     showSubRoute: false,
-    roles: ["admin", "teacher", "student", "parent", "superadmin"],
+    roles: ["admin", "teacher", "student", "parent",],
     submenuItems: [
       {
         label: "Attendance Report",
@@ -704,7 +770,7 @@ export const SidebarData: SidebarItem[] = [
     submenu: false,
     showSubRoute: false,
     roles: ["admin", "teacher", "student", "parent", "superadmin"],
-    
+
     submenuItems: [
       {
         label: "Users",
@@ -770,7 +836,7 @@ export const SidebarData: SidebarItem[] = [
     icon: "ti ti-page-break",
     submenu: true,
     showSubRoute: false,
-    roles: ["admin", "teacher", "student", "parent", "superadmin"],
+    roles: ["admin", "teacher", "student", "parent",],
     submenuItems: [
       {
         label: "Pages",
@@ -785,7 +851,8 @@ export const SidebarData: SidebarItem[] = [
         submenu: true,
         roles: ["admin", "teacher", "student", "parent", "superadmin"],
         submenuItems: [
-          { label: "All Blogs", link: routes.allBlogs ,
+          {
+            label: "All Blogs", link: routes.allBlogs,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
           },
           {
@@ -814,12 +881,14 @@ export const SidebarData: SidebarItem[] = [
         submenu: true,
         roles: ["admin", "teacher", "student", "parent", "superadmin"],
         submenuItems: [
-          { label: "Countries", link: routes.countries,
+          {
+            label: "Countries", link: routes.countries,
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
-          { label: "States", link: routes.states, icon: "ti ti-quote",
+          },
+          {
+            label: "States", link: routes.states, icon: "ti ti-quote",
             roles: ["admin", "teacher", "student", "parent", "superadmin"],
-           },
+          },
           {
             label: "Cities",
             link: routes.cities,

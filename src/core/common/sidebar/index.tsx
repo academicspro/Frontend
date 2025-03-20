@@ -4,12 +4,12 @@ import Scrollbars from "react-custom-scrollbars-2";
 import { getSidebarData, SidebarItem } from "../../data/json/sidebarData";
 import ImageWithBasePath from "../imageWithBasePath";
 import "../../../style/icon/tabler-icons/webfont/tabler-icons.css";
-import { setExpandMenu } from "../../data/redux/sidebarSlice";
+import { setExpandMenu } from "../../../Store/sidebarSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {
   resetAllMode,
   setDataLayout,
-} from "../../data/redux/themeSettingSlice";
+} from "../../../Store/themeSettingSlice";
 import usePreviousRoute from "./usePreviousRoute";
 
 const Sidebar = () => {

@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   setDataLayout,
   setDataTheme,
-} from "../../data/redux/themeSettingSlice";
+} from "../../../Store/themeSettingSlice";
 import ImageWithBasePath from "../imageWithBasePath";
 import {
   setExpandMenu,
   setMobileSidebar,
   toggleMiniSidebar,
-} from "../../data/redux/sidebarSlice";
+} from "../../../Store/sidebarSlice";
 import { useState } from "react";
-import { all_routes } from "../../../feature-module/router/all_routes";
+import { all_routes } from "../../../router/all_routes";
 const Header = () => {
   const routes = all_routes;
   const dispatch = useDispatch();
@@ -133,180 +133,8 @@ const Header = () => {
             </div>
             {/* /Search */}
             <div className="d-flex align-items-center">
-              <div className="dropdown me-2">
-                <Link
-                  to="#"
-                  className="btn btn-outline-light fw-normal bg-white d-flex align-items-center p-2"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i className="ti ti-calendar-due me-1" />
-                  Academic Year : 2024 / 2025
-                </Link>
-                <div className="dropdown-menu dropdown-menu-right">
-                  <Link
-                    to="#"
-                    className="dropdown-item d-flex align-items-center"
-                  >
-                    Academic Year : 2023 / 2024
-                  </Link>
-                  <Link
-                    to="#"
-                    className="dropdown-item d-flex align-items-center"
-                  >
-                    Academic Year : 2022 / 2023
-                  </Link>
-                  <Link
-                    to="#"
-                    className="dropdown-item d-flex align-items-center"
-                  >
-                    Academic Year : 2021 / 2022
-                  </Link>
-                </div>
-              </div>
-              <div className="pe-1 ms-1">
-                <div className="dropdown">
-                  <Link
-                    to="#"
-                    className="btn btn-outline-light bg-white btn-icon d-flex align-items-center me-1 p-2"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <ImageWithBasePath
-                      src="assets/img/flags/us.png"
-                      alt="Language"
-                      className="img-fluid rounded-pill"
-                    />
-                  </Link>
-                  <div className="dropdown-menu dropdown-menu-right">
-                    <Link
-                      to="#"
-                      className="dropdown-item active d-flex align-items-center"
-                    >
-                      <ImageWithBasePath
-                        className="me-2 rounded-pill"
-                        src="assets/img/flags/us.png"
-                        alt="Img"
-                        height={22}
-                        width={22}
-                      />{" "}
-                      English
-                    </Link>
-                    <Link
-                      to="#"
-                      className="dropdown-item d-flex align-items-center"
-                    >
-                      <ImageWithBasePath
-                        className="me-2 rounded-pill"
-                        src="assets/img/flags/fr.png"
-                        alt="Img"
-                        height={22}
-                        width={22}
-                      />{" "}
-                      French
-                    </Link>
-                    <Link
-                      to="#"
-                      className="dropdown-item d-flex align-items-center"
-                    >
-                      <ImageWithBasePath
-                        className="me-2 rounded-pill"
-                        src="assets/img/flags/es.png"
-                        alt="Img"
-                        height={22}
-                        width={22}
-                      />{" "}
-                      Spanish
-                    </Link>
-                    <Link
-                      to="#"
-                      className="dropdown-item d-flex align-items-center"
-                    >
-                      <ImageWithBasePath
-                        className="me-2 rounded-pill"
-                        src="assets/img/flags/de.png"
-                        alt="Img"
-                        height={22}
-                        width={22}
-                      />{" "}
-                      German
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="pe-1">
-                <div className="dropdown">
-                  <Link
-                    to="#"
-                    className="btn btn-outline-light bg-white btn-icon me-1"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <i className="ti ti-square-rounded-plus" />
-                  </Link>
-                  <div className="dropdown-menu dropdown-menu-right border shadow-sm dropdown-md">
-                    <div className="p-3 border-bottom">
-                      <h5>Add New</h5>
-                    </div>
-                    <div className="p-3 pb-0">
-                      <div className="row gx-2">
-                        <div className="col-6">
-                          <Link
-                            to={routes.addStudent}
-                            className="d-block bg-primary-transparent ronded p-2 text-center mb-3 class-hover"
-                          >
-                            <div className="avatar avatar-lg mb-2">
-                              <span className="d-inline-flex align-items-center justify-content-center w-100 h-100 bg-primary rounded-circle">
-                                <i className="ti ti-school" />
-                              </span>
-                            </div>
-                            <p className="text-dark">Students</p>
-                          </Link>
-                        </div>
-                        <div className="col-6">
-                          <Link
-                            to={routes.addTeacher}
-                            className="d-block bg-success-transparent ronded p-2 text-center mb-3 class-hover"
-                          >
-                            <div className="avatar avatar-lg mb-2">
-                              <span className="d-inline-flex align-items-center justify-content-center w-100 h-100 bg-success rounded-circle">
-                                <i className="ti ti-users" />
-                              </span>
-                            </div>
-                            <p className="text-dark">Teachers</p>
-                          </Link>
-                        </div>
-                        <div className="col-6">
-                          <Link
-                            to={routes.addStaff}
-                            className="d-block bg-warning-transparent ronded p-2 text-center mb-3 class-hover"
-                          >
-                            <div className="avatar avatar-lg rounded-circle mb-2">
-                              <span className="d-inline-flex align-items-center justify-content-center w-100 h-100 bg-warning rounded-circle">
-                                <i className="ti ti-users-group" />
-                              </span>
-                            </div>
-                            <p className="text-dark">Staffs</p>
-                          </Link>
-                        </div>
-                        <div className="col-6">
-                          <Link
-                            to={routes.addInvoice}
-                            className="d-block bg-info-transparent ronded p-2 text-center mb-3 class-hover"
-                          >
-                            <div className="avatar avatar-lg mb-2">
-                              <span className="d-inline-flex align-items-center justify-content-center w-100 h-100 bg-info rounded-circle">
-                                <i className="ti ti-license" />
-                              </span>
-                            </div>
-                            <p className="text-dark">Invoice</p>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
+
               <div className="pe-1">
                 {!location.pathname.includes("layout-dark") && (
                   <Link
@@ -326,9 +154,8 @@ const Header = () => {
                 )}
               </div>
               <div
-                className={`pe-1 ${
-                  notificationVisible ? "notification-item-show" : ""
-                }`}
+                className={`pe-1 ${notificationVisible ? "notification-item-show" : ""
+                  }`}
                 id="notification_item"
               >
                 <Link
@@ -496,24 +323,7 @@ const Header = () => {
                   <span className="chat-status-dot" />
                 </Link>
               </div>
-              <div className="pe-1">
-                <Link
-                  to="#"
-                  className="btn btn-outline-light bg-white btn-icon me-1"
-                >
-                  <i className="ti ti-chart-bar" />
-                </Link>
-              </div>
-              <div className="pe-1">
-                <Link
-                  onClick={toggleFullscreen}
-                  to="#"
-                  className="btn btn-outline-light bg-white btn-icon me-1"
-                  id="btnFullscreen"
-                >
-                  <i className="ti ti-maximize" />
-                </Link>
-              </div>
+
               <div className="dropdown ms-1">
                 <Link
                   to="#"
@@ -528,6 +338,8 @@ const Header = () => {
                     />
                   </span>
                 </Link>
+
+                {/* // Profile Dropdown */}
                 <div className="dropdown-menu">
                   <div className="d-block">
                     <div className="d-flex align-items-center p-2">
@@ -538,7 +350,7 @@ const Header = () => {
                         />
                       </span>
                       <div>
-                        <h6>Kevin Larry</h6>
+                        <h6>Rajneesh Rana</h6>
                         <p className="text-primary mb-0">Administrator</p>
                       </div>
                     </div>
