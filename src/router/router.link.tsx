@@ -238,6 +238,9 @@ import Calendar from "../apps/calendar";
 import DataTable from "../components/uiInterface/table/data-tables";
 import Storage from "../dashboard/superadmindashboard/settings/otherSettings/storage";
 
+// super admin pages
+import SuperAdminFetauresRequestListPage from "../dashboard/superadmindashboard/pages/SuperAdminFetauresRequestListPage";
+
 // Admin pages
 import AdminRequestFetauresPage from "../dashboard/adminDashboard/pages/AdminRequestFetauresPage";
 
@@ -516,6 +519,11 @@ export const publicRoutes = [
     path: routes.getSchools,
     element: <GetSchools />,
     route: Route
+  },
+  {
+    path: routes.featuresRequestList,
+    element: <SuperAdminFetauresRequestListPage />,
+    route: Route,
   },
 
 

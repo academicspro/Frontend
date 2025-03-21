@@ -93,8 +93,6 @@ const AdminRequestFeaturesPage = () => {
 
         } catch (err: any) {
             toast.error(err.message);
-        } finally {
-            fetchFeaturesList();
         }
     }
 
@@ -134,7 +132,7 @@ const AdminRequestFeaturesPage = () => {
                                 <h4 className="mb-3">Features List</h4>
                             </div>
                             <div className="card-body p-0 py-3">
-                                <Table dataSource={featuresList} columns={columns} />
+                                <Table  dataSource={featuresList} columns={columns} />
                             </div>
                         </Fragment>
                     ) : null}
