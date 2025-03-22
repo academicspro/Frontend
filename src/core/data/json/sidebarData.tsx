@@ -110,30 +110,30 @@ export const SidebarData: SidebarItem[] = [
       },
     ],
   },
-  // {
-  //   label: "Registration",
-  //   icon: "ti ti-page-break",
-  //   submenu: true,
-  //   showSubRoute: false,
-  //   roles: ["superadmin"],
-  //   submenuItems: [
-  //     {
-  //       label: "Register School",
-  //       link: routes.addSchools,
-  //       showSubRoute: false,
-  //       icon: "ti ti-page-break",
-  //       roles: ["superadmin"],
-  //     },
-  //     {
-  //       label: "Get All Schools",
-  //       link: routes.getSchools,
-  //       showSubRoute: false,
-  //       icon: "ti ti-page-break",
-  //       roles: ["superadmin"],
-  //     },
+  {
+    label: "Registration",
+    icon: "ti ti-page-break",
+    submenu: true,
+    showSubRoute: false,
+    roles: ["superadmin"],
+    submenuItems: [
+      {
+        label: "Register School",
+        link: routes.addSchools,
+        showSubRoute: false,
+        icon: "ti ti-page-break",
+        roles: ["superadmin"],
+      },
+      {
+        label: "Get All Schools",
+        link: routes.getSchools,
+        showSubRoute: false,
+        icon: "ti ti-page-break",
+        roles: ["superadmin"],
+      },
 
-  //   ],
-  // },
+    ],
+  },
   // {
   //   label: "LAYOUT",
   //   submenuOpen: false,

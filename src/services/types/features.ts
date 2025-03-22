@@ -27,3 +27,15 @@ export interface IFeatureRequestObj {
 }
 
 export interface IFeaturesRequestApproveResponse extends IBaseResponse {}
+
+export interface IGetAllFeaturePermissionsListResponse extends IBaseResponse {
+  permissionsList: Array<IPermissionsObj>;
+}
+
+export interface IPermissionsObj {
+  moduleName: string;
+  status: number; // 0: not there, 1: Pending request, 2 for rejected
+  id: string;
+}
+
+export interface IFeaturesPermissionToggleResponse extends IBaseResponse {}

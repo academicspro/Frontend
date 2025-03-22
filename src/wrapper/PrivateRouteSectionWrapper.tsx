@@ -28,6 +28,7 @@ const Feature = () => {
   const dataColor = useSelector((state: any) => state.themeSetting.dataColor);
   const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn);
 
+
   useEffect(() => {
     if (dataTheme === "dark_data_theme") {
       document.documentElement.setAttribute("data-theme", "darks");
@@ -40,13 +41,9 @@ const Feature = () => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  console.log(isLoggedIn);
-
   if (!isLoggedIn) {
-    console.log("not logged in");
     return <Navigate to="/" />;
   }
-
 
   return (
     <div
