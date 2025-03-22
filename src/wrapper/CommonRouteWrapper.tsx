@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Outlet, useNavigate } from "react-router";
+import { Outlet, useLocation, useNavigate } from "react-router";
+import qs from "query-string";
 
 import { setIsLoggedIn, setUserObj, setUserPermissions } from "../Store/authSlice";
 import { getUserProfile } from "../services/authService";
@@ -10,11 +11,25 @@ import AppConfig from "../config/config";
 const CommonRouteWrapper = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const isLoggedIn = useSelector((state: any) => state.auth.isLoggedIn);
   const triggerPostLogin = useSelector((state: any) => state.auth.triggerPostLogin);
 
   const [showLoader, setShowLoader] = useState<boolean>(true);
   const [accessToken, setAccessToken] = useState<string>("");
+
+  const { redirect } =
+    qs.parse(window.location.search);
+
+  useEffect(() => {
+    if (!isLoggedIn && location.pathname !== "/") {
+      navigate(`/?redirect=${location.pathname}`);
+    }
+
+    return () => { };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoggedIn]);
 
   useEffect(() => {
     const token = localStorage.getItem(AppConfig.LOCAL_STORAGE_ACCESS_TOKEN_KEY);
@@ -41,20 +56,20 @@ const CommonRouteWrapper = () => {
 
         switch (role) {
           case "admin":
-            navigate(all_routes.adminDashboard);
+            navigate(redirect ? redirect as string : all_routes.adminDashboard);
             break;
           case "superadmin":
-            navigate(all_routes.superAdminDashboard);
+            navigate(redirect ? redirect as string : all_routes.superAdminDashboard);
             break;
           case "teacher":
-            navigate(all_routes.teacherDashboard);
+            navigate(redirect ? redirect as string : all_routes.teacherDashboard);
             break;
           case "student":
-            navigate(all_routes.studentDashboard);
+            navigate(redirect ? redirect as string : all_routes.studentDashboard);
             break;
         }
       } catch (err: any) {
-        // setError(err.message || "Login failed");
+
       } finally {
         setTimeout(() => {
           setShowLoader(false);

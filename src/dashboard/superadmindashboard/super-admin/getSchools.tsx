@@ -6,6 +6,7 @@ import PredefinedDateRanges from "../../../core/common/datePicker"; // Adjust pa
 import TooltipOption from "../../../core/common/tooltipOption"; // Adjust path as needed
 import { all_routes } from "../../../router/all_routes"; // Adjust path as needed
 import { page } from "../../../core/common/selectoption/selectoption"; // Adjust path as needed
+import UpdateFeaturePermissionsModal from "./UpdateFeaturePermissionsModal";
 
 // Define the type for school data
 type School = {
@@ -42,6 +43,22 @@ const initialSchoolData: School[] = [
     status: "Inactive",
     permissions: ["manage_teachers"],
   },
+  {
+    key: "3",
+    schoolName: "Springfield High",
+    adminName: "John Doe",
+    email: "johndoe@example.com",
+    status: "Inactive",
+    permissions: ["manage_teachers"],
+  },
+  {
+    key: "4",
+    schoolName: "Springfield High",
+    adminName: "John Doe",
+    email: "johndoe@example.com",
+    status: "Inactive",
+    permissions: ["manage_teachers"],
+  },
 ];
 
 const GetSchools = () => {
@@ -49,6 +66,7 @@ const GetSchools = () => {
   const [schools, setSchools] = useState<School[]>(initialSchoolData);
   const [selectedSchool, setSelectedSchool] = useState<School | null>(null);
   const [modalPermissions, setModalPermissions] = useState<string[]>([]);
+  const [selectedUserId, setSelectedUserId] = useState<string>("cm8hpij6j00001l6t0z6qqv6s");
 
   // Sync modal permissions with selected school when it changes
   useEffect(() => {
@@ -142,12 +160,13 @@ const GetSchools = () => {
               <i className="ti ti-dots-vertical fs-14" />
             </Link>
             <ul className="dropdown-menu dropdown-menu-right p-3">
+              {/* onClick={() => setSelectedUserId(record.key)} */}
               <li>
                 <Link
                   to="#"
                   className="dropdown-item rounded-1"
                   data-bs-toggle="modal"
-                  data-bs-target="#update-permission-modal"
+                  data-bs-target="#modal-lg"
                   data-school-key={record.key}
                 >
                   <i className="ti ti-edit-circle me-2" />
@@ -314,78 +333,76 @@ const GetSchools = () => {
       {/* /Page Wrapper */}
 
       {/* Update Permission Modal */}
-      <div className="modal fade" id="update-permission-modal">
+      <UpdateFeaturePermissionsModal userId={selectedUserId} />
+
+      {/* <div className="modal fade" id="modal-lg">
         <div className="modal-dialog modal-dialog-centered">
           <div className="modal-content">
-            <div className="modal-header bg-primary text-white">
-              <h5 className="modal-title">
-                Update Permissions for {selectedSchool?.schoolName || "School"}
-              </h5>
+            <div className="modal-header">
+              <h5 className="modal-title">School Permissions</h5>
               <button
                 type="button"
-                className="btn-close btn-close-white"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div className="modal-body">
-              <ul className="list-group">
-                {allPermissions.map((perm) => (
-                  <li
-                    key={perm.id}
-                    className="list-group-item d-flex align-items-center"
-                  >
-                    <i className={`${perm.icon} me-2`}></i>
-                    <label htmlFor={perm.id} className="flex-grow-1 mb-0">
-                      {perm.label}
-                    </label>
-                    <input
-                      type="checkbox"
-                      id={perm.id}
-                      className="form-check-input ms-2"
-                      checked={modalPermissions.includes(perm.id)}
-                      onChange={() => {
-                        setModalPermissions((prev) =>
-                          prev.includes(perm.id)
-                            ? prev.filter((p) => p !== perm.id)
-                            : [...prev, perm.id]
-                        );
-                      }}
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                onClick={() => {
-                  if (selectedSchool) {
-                    setSchools((prevSchools) =>
-                      prevSchools.map((school) =>
-                        school.key === selectedSchool.key
-                          ? { ...school, permissions: modalPermissions }
-                          : school
-                      )
-                    );
-                  }
-                }}
-                data-bs-dismiss="modal"
-              >
-                Save Changes
-              </button>
+
+            <div className="modal-body text-left">
+              <div className="table-responsive">
+                <table className="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Module Name</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {allPermissions.map((permission) => (
+                      <tr key={permission.id}>
+                        <td>{permission.label}</td>
+                        <td>
+                          {modalPermissions.includes(permission.id)
+                            ? "Granted"
+                            : "Revoked"}
+                        </td>
+                        <td>
+                          {modalPermissions.includes(permission.id) ? (
+                            <button
+                              type="button"
+                              className="btn btn-danger btn-sm"
+                              onClick={() =>
+                                setModalPermissions((prev) =>
+                                  prev.filter((perm) => perm !== permission.id)
+                                )
+                              }
+                            >
+                              Revoke
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              className="btn btn-success btn-sm"
+                              onClick={() =>
+                                setModalPermissions((prev) => [...prev, permission.id])
+                              }
+                            >
+                              Grant
+                            </button>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+
       {/* /Update Permission Modal */}
 
       {/* Delete Modal */}

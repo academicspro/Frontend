@@ -19,8 +19,8 @@ const SuperAdminDashboard = () => {
   const [date, setDate] = useState<Nullable<Date>>(null);
   const [userName, setUserName] = useState("User");
 
-  
-  
+
+
   function SampleNextArrow(props: any) {
     const { style, onClick } = props;
     return (
