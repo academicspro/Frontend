@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import Table from "../../../../core/common/dataTable/index"; // Adjust path as needed
 import { IFeatureRequestObj } from "../../../../services/types/features";
 import { featureRequestApprove, featureRequestReject, getAllFeaturesRequestList } from "../../../../services/superadmin/featuresServices";
+import CustomLoader from "../../../../components/Loader";
 
 const SuperAdminFeaturesRequestListPage = () => {
     const [featuresList, setFeaturesList] = useState<Array<IFeatureRequestObj>>([]);
@@ -105,8 +106,8 @@ const SuperAdminFeaturesRequestListPage = () => {
     return (
         <div className="page-wrapper">
             <div className="content">
-                <div className="card">
-                    {fetchRequestLoader ? (<p>Loading</p>) : null}
+                <div className="card min-vh-100" style={{ position: "relative" }}>
+                    {fetchRequestLoader && <CustomLoader size={50} color="blue" variant="dots" />}
 
                     {!fetchRequestLoader ? (
                         <Fragment>
