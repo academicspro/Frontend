@@ -12,17 +12,28 @@ import {
 } from "../../../Store/sidebarSlice";
 import { useState } from "react";
 import { all_routes } from "../../../router/all_routes";
+import { logout } from "../../../services/authService"; //added
+
+
+
 const Header = () => {
   const routes = all_routes;
   const dispatch = useDispatch();
   const dataTheme = useSelector((state: any) => state.themeSetting.dataTheme);
   const dataLayout = useSelector((state: any) => state.themeSetting.dataLayout);
+  const user = useSelector((state: any) => state.auth.userObj); //get user info
   const [notificationVisible, setNotificationVisible] = useState(false);
-
-  const mobileSidebar = useSelector(
+    const mobileSidebar = useSelector(
     (state: any) => state.sidebarSlice.mobileSidebar
   );
 
+  //for generating the first and last name
+  const getInitials = (name: string): string => {
+    const names = name.split(" ");
+    const firstNameInitial = names[0]?.charAt(0) || "";
+    const lastNameInitial = names[names.length - 1]?.charAt(0) || "";
+    return `${firstNameInitial}${lastNameInitial}`.toUpperCase();
+  };
   const toggleMobileSidebar = () => {
     dispatch(setMobileSidebar(!mobileSidebar));
   };
@@ -60,13 +71,13 @@ const Header = () => {
   const toggleFullscreen = () => {
     if (!isFullscreen) {
       if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen().catch((err) => {});
+        document.documentElement.requestFullscreen().catch((err) => { });
         setIsFullscreen(true);
       }
     } else {
       if (document.exitFullscreen) {
         if (document.fullscreenElement) {
-          document.exitFullscreen().catch((err) => {});
+          document.exitFullscreen().catch((err) => { });
         }
         setIsFullscreen(false);
       }
@@ -331,28 +342,67 @@ const Header = () => {
                   className="dropdown-toggle d-flex align-items-center"
                   data-bs-toggle="dropdown"
                 >
-                  <span className="avatar avatar-md rounded">
-                    <ImageWithBasePath
+                  {/* <span className="avatar avatar-md rounded">
+                    {/* <ImageWithBasePath
                       src="assets/img/profiles/avatar-27.jpg"
                       alt="Img"
                       className="img-fluid"
-                    />
-                  </span>
-                </Link>
-
-                {/* // Profile Dropdown */}
-                <div className="dropdown-menu">
-                  <div className="d-block">
-                    <div className="d-flex align-items-center p-2">
+                    /> */}
+                  {/* {
+                          user?.image ?(
+                            <ImageWithBasePath
+                            src="assets/img/profiles/avatar-27.jpg"
+                            alt="img"
+                          />
+                          ):(
+                            getInitials(user?.name || "User")
+                          )
+                        }
+                  </span> */}
+                  {
+                    user?.image ? (
                       <span className="avatar avatar-md me-2 online avatar-rounded">
                         <ImageWithBasePath
                           src="assets/img/profiles/avatar-27.jpg"
                           alt="img"
                         />
                       </span>
+                    ) : (
+                      
+                        getInitials(user?.name)
+                   
+                    )
+                  }
+                </Link>
+
+                {/* // Profile Dropdown */}
+                <div className="dropdown-menu">
+                  <div className="d-block">
+                    <div className="d-flex align-items-center p-2">
+
+                      {/* this part is left  */}
+
+                      {
+                        user?.image ? (
+                          <span className="avatar avatar-md me-2 online avatar-rounded">
+                            <ImageWithBasePath
+                              src="assets/img/profiles/avatar-27.jpg"
+                              alt="img"
+                            />
+                          </span>
+                        ) : (
+                          <span className="avatar avatar-md me-2 online avatar-rounded bg-green-500 text-black !text-black font-bold text-4xl flex items-center justify-center leading-none ">
+                            {getInitials(user?.name)}
+                          </span>
+                        )
+                      }
+
+
+
+
                       <div>
-                        <h6>Rajneesh Rana</h6>
-                        <p className="text-primary mb-0">Administrator</p>
+                        <h6>{user?.name ?? "no name"}</h6>
+                        <p className="text-primary mb-0">{user?.role ?? "no role"}</p>
                       </div>
                     </div>
                     <hr className="m-0" />
@@ -374,6 +424,7 @@ const Header = () => {
                     <Link
                       className="dropdown-item d-inline-flex align-items-center p-2"
                       to={routes.login}
+                      onClick={() => logout()}  //added
                     >
                       <i className="ti ti-login me-2" />
                       Logout
@@ -401,7 +452,7 @@ const Header = () => {
             <Link className="dropdown-item" to={routes.profilesettings}>
               Settings
             </Link>
-            <Link className="dropdown-item" to={routes.login}>
+            <Link className="dropdown-item" to={routes.login} onClick={() => logout()} >
               Logout
             </Link>
           </div>

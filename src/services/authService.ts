@@ -3,12 +3,13 @@ import { AxiosResponse } from "axios";
 
 import { ILoginResponse, IGetUserProfileResponse } from "./types/auth";
 import BaseApi from "./BaseApi";
+import AppConfig from "../config/config";
 
 export const login = async (
   email: string,
   password: string
 ): Promise<AxiosResponse<ILoginResponse>> => {
-  const response = await BaseApi.postRequest(`/auth/sign-in`, {
+  const response = await BaseApi.postRequest(`/sign-in`, {
     email,
     password,
   });
@@ -28,6 +29,11 @@ export const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("role");
   localStorage.removeItem("userId");
+  //changed
+  localStorage.removeItem(AppConfig.LOCAL_STORAGE_ACCESS_TOKEN_KEY); // Clear access token
+  localStorage.removeItem(AppConfig.LOCAL_STORAGE_REFRESH_TOKEN_KEY); // Clear refresh token
+  window.location.reload() //to automatically reload
+  
 };
 
 export const getCurrentUserRole = () => {

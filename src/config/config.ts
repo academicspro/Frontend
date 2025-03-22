@@ -1,7 +1,7 @@
 const developmentConfig = {
   BASE_URL: "http://localhost:3000",
   apiGateway: {
-    BASE_URL: "http://localhost:5000/api/v1",
+    BASE_URL: "https://academicspro-production.up.railway.app/api/v1",
   },
 };
 

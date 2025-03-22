@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ImageWithBasePath from "../../core/common/imageWithBasePath";
 import { all_routes } from "../../router/all_routes";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import BaseApi from "../../services/BaseApi";
+import { getUserProfile } from "../../services/authService";
 type PasswordField =
   | "oldPassword"
   | "newPassword"
@@ -11,12 +13,131 @@ type PasswordField =
 
 const Profile = () => {
   const route = all_routes;
+  const [profileImage, setProfileImage] = useState("assets/img/profiles/avatar-27.jpg");
+  //to store image and preview it 
+  const [setData, updateData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    userName: "",
+    phoneNumber: "",
+    address: "",
+    country: "",
+    state: "",
+    city: "",
+    postalCode: "",
+    bio: "",
+
+  });//to store data and chnage it 
+
+console.log("getuseerprofile",getUserProfile());
+  const [originalData, setOriginalData] = useState({ ...setData });  //to store previous data so if cancel is click we can showw the initial data 
+
   const [passwordVisibility, setPasswordVisibility] = useState({
     oldPassword: false,
     newPassword: false,
     confirmPassword: false,
     currentPassword: false,
   });
+
+  useEffect(() => {
+
+    //user data  api call waititng 
+    const initialData = {
+      firstName: "John",
+      lastName: "Doe",
+      email: "john.doe@example.com",
+      userName: "johndoe",
+      phoneNumber: "1234567890",
+      address: "123 Main St",
+      country: "USA",
+      state: "California",
+      city: "Los Angeles",
+      postalCode: "90001",
+      bio: "This is a bio.",
+    };
+    updateData(initialData); //update the data on edit mode
+    setOriginalData(initialData); //store initial data to show if cancel is click
+  }, []);
+
+  //display the change if done in edit mode
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    updateData((prev) => ({ ...prev, [name]: value }));
+  };
+
+//preview the image 
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file); // Create a temporary URL
+      console.log("imageurl", imageUrl);
+      setProfileImage(imageUrl); // Update the profile image state
+    }
+  };
+  //on click update upload to the db 
+  const handleUpdate = () => {
+    try {
+      const fileInput = document.getElementById("image_sign") as HTMLInputElement;
+      const files = fileInput.files?.[0];
+      console.log("file", files);
+      if(!files) return;
+      if (files) {
+        const formData = new FormData();
+        formData.append("image", files ); // Append the file to FormData
+        // console.log("formdata", formData);
+        // const formDataEntries = Array.from(formData.entries());
+        // for (const [key, value] of formDataEntries) {
+        //   console.log("123", key, value); 
+        // }
+
+        // api call to update 
+       
+        // const resonse=BaseApi.putRequest("url",formData)  //error in base api there is no FormDtaa
+       // console.log(response);
+      //  setProfileImage(response.data.image);
+        
+      }
+    }
+    catch (err) { console.log(err); }
+  }
+
+//on cancel show the initial data
+  const handlecancel = () => {
+    updateData(originalData);
+
+  };
+
+  //on every save if the data is changed the it call api, if not then skip the api call
+  const handleSave = () => {
+    const hasChanges = Object.keys(setData).some(
+      (key) => setData[key as keyof typeof setData] !== originalData[key as keyof typeof originalData]
+    );
+
+    if (!hasChanges) {
+      console.log("No changes . Skip API call.");
+      return;
+    }
+
+    console.log("Saved Data:", setData);
+    // // API call 
+    // try {
+    //   //api call put 
+      //  const response  =BaseApi.putRequest("url",setData);
+      //  if(response.status ===200 || response.status ===201){
+      //   console.log("sucessfully update");
+        
+      //  }
+      //  else{
+      //    console.log("something is wrong");
+      //  }
+    // } catch (error) {
+    //   console.log("err",error);
+    // }
+  };
+
+
+
 
   const togglePasswordVisibility = (field: PasswordField) => {
     setPasswordVisibility((prevState) => ({
@@ -72,17 +193,24 @@ const Profile = () => {
                   <div className="card-body ">
                     <div className="settings-profile-upload">
                       <span className="profile-pic">
-                        <ImageWithBasePath
+                        {/* <ImageWithBasePath
                           src="assets/img/profiles/avatar-27.jpg"
                           alt="Profile"
+                        /> */}
+                         
+                        <ImageWithBasePath
+                          src={profileImage}
+                          alt="Profile"
+                         
                         />
+
                       </span>
                       <div className="title-upload">
                         <h5>Edit Your Photo</h5>
                         <Link to="#" className="me-2">
                           Delete{" "}
                         </Link>
-                        <Link to="#" className="text-primary">
+                        <Link to="#" className="text-primary" onClick={handleUpdate} >
                           Update
                         </Link>
                       </div>
@@ -103,6 +231,7 @@ const Profile = () => {
                         className="form-control"
                         multiple
                         id="image_sign"
+                        onChange={handleImageUpload}
                       />
                       <div id="frames" />
                     </div>
@@ -118,6 +247,7 @@ const Profile = () => {
                           <h5>Personal Information</h5>
                           <Link
                             to="#"
+
                             className="btn btn-primary btn-sm"
                             data-bs-toggle="modal"
                             data-bs-target="#edit_personal_information"
@@ -132,8 +262,12 @@ const Profile = () => {
                               <label className="form-label">First Name</label>
                               <input
                                 type="text"
+                                name="firstName"
                                 className="form-control"
                                 placeholder="Enter First Name"
+                                value={setData.firstName ?? "firstdata"}
+                                disabled
+
                               />
                             </div>
                             <div className="mb-3 flex-fill">
@@ -142,6 +276,9 @@ const Profile = () => {
                                 type="text"
                                 className="form-control"
                                 placeholder="Enter Last Name"
+                                name="lastName"
+                                value={setData.lastName ?? "lastdata"}
+                                disabled
                               />
                             </div>
                           </div>
@@ -151,15 +288,22 @@ const Profile = () => {
                               type="email"
                               className="form-control"
                               placeholder="Enter Email"
+                              name="email"
+                              value={setData.email ?? "emaildata"}
+                              disabled
+
                             />
                           </div>
                           <div className="d-block d-xl-flex">
                             <div className="mb-3 flex-fill me-xl-3 me-0">
                               <label className="form-label">User Name</label>
                               <input
-                                type="email"
+                                type="text"
                                 className="form-control"
                                 placeholder="Enter User Name"
+                                name="userName"
+                                value={setData.userName ?? "userdata"}
+                                disabled
                               />
                             </div>
                             <div className="mb-3 flex-fill">
@@ -168,6 +312,9 @@ const Profile = () => {
                                 type="email"
                                 className="form-control"
                                 placeholder="Enter Phone Number"
+                                name="phoneNumber"
+                                value={setData.phoneNumber ?? "phonedata"}
+                                disabled
                               />
                             </div>
                           </div>
@@ -178,6 +325,7 @@ const Profile = () => {
                           <h5>Address Information</h5>
                           <Link
                             to="#"
+
                             className="btn btn-primary btn-sm"
                             data-bs-toggle="modal"
                             data-bs-target="#edit_address_information"
@@ -193,6 +341,9 @@ const Profile = () => {
                               type="text"
                               className="form-control"
                               placeholder="Enter Address"
+                              name="address"
+                              value={setData.address ?? "addressdata"}
+                              disabled
                             />
                           </div>
                           <div className="d-block d-xl-flex">
@@ -202,6 +353,9 @@ const Profile = () => {
                                 type="text"
                                 className="form-control"
                                 placeholder="Enter Country"
+                                name="country"
+                                value={setData.country ?? "countrydata"}
+                                disabled
                               />
                             </div>
                             <div className="mb-3 flex-fill">
@@ -212,6 +366,9 @@ const Profile = () => {
                                 type="email"
                                 className="form-control"
                                 placeholder="Enter State"
+                                name="state"
+                                value={setData.state ?? "statedata"}
+                                disabled
                               />
                             </div>
                           </div>
@@ -222,6 +379,9 @@ const Profile = () => {
                                 type="email"
                                 className="form-control"
                                 placeholder="City"
+                                name="city"
+                                value={setData.city ?? "citydata"}
+                                disabled
                               />
                             </div>
                             <div className="mb-3 flex-fill">
@@ -230,6 +390,10 @@ const Profile = () => {
                                 type="email"
                                 className="form-control"
                                 placeholder="Enter Postal Code"
+                                name="postalCode"
+                                value={setData.postalCode ?? "postcodedata"}
+                                disabled
+
                               />
                             </div>
                           </div>
@@ -263,8 +427,8 @@ const Profile = () => {
                               />
                               <span
                                 className={`ti toggle-passwords ${passwordVisibility.currentPassword
-                                    ? "ti-eye"
-                                    : "ti-eye-off"
+                                  ? "ti-eye"
+                                  : "ti-eye-off"
                                   }`}
                                 onClick={() =>
                                   togglePasswordVisibility("currentPassword")
@@ -293,6 +457,7 @@ const Profile = () => {
                   className="btn-close custom-btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
+                  onClick={handlecancel}
                 >
                   <i className="ti ti-x" />
                 </button>
@@ -307,6 +472,9 @@ const Profile = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter First Name"
+                          name="firstName"
+                          value={setData.firstName}
+                          onChange={handleInputChange}
                         />
                       </div>
                       <div className="mb-3">
@@ -315,6 +483,9 @@ const Profile = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter Last Name"
+                          name="lastName"
+                          value={setData.lastName}
+                          onChange={handleInputChange}
                         />
                       </div>
                       <div className="mb-3">
@@ -323,14 +494,20 @@ const Profile = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter User Name"
+                          name="userName"
+                          value={setData.userName}
+                          onChange={handleInputChange}
                         />
                       </div>
                       <div className="mb-3">
                         <label className="form-label">Email</label>
                         <input
-                          type="text"
+                          type="email"
                           className="form-control"
                           placeholder="Enter Email"
+                          name="email"
+                          value={setData.email}
+                          onChange={handleInputChange}
                         />
                       </div>
                       <div className="mb-3">
@@ -339,6 +516,9 @@ const Profile = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter Phone Number"
+                          name="phoneNumber"
+                          value={setData.phoneNumber}
+                          onChange={handleInputChange}
                         />
                       </div>
                       <div className="mb-0">
@@ -347,6 +527,9 @@ const Profile = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter Bio"
+                          name="bio"
+                          value={setData.bio}
+                          onChange={handleInputChange}
                         />
                       </div>
                     </div>
@@ -357,6 +540,7 @@ const Profile = () => {
                     to="#"
                     className="btn btn-light me-2"
                     data-bs-dismiss="modal"
+                    onClick={handlecancel}
                   >
                     Cancel
                   </Link>
@@ -364,6 +548,7 @@ const Profile = () => {
                     to="#"
                     className="btn btn-primary"
                     data-bs-dismiss="modal"
+                    onClick={handleSave}
                   >
                     Save Changes
                   </Link>
@@ -384,6 +569,7 @@ const Profile = () => {
                   className="btn-close custom-btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
+                  onClick={handlecancel}
                 >
                   <i className="ti ti-x" />
                 </button>
@@ -398,6 +584,9 @@ const Profile = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter Address"
+                          name="address"
+                          value={setData.address}
+                          onChange={handleInputChange}
                         />
                       </div>
                       <div className="mb-3">
@@ -406,6 +595,9 @@ const Profile = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter Country"
+                          name="country"
+                          value={setData.country}
+                          onChange={handleInputChange}
                         />
                       </div>
                       <div className="mb-3">
@@ -414,6 +606,9 @@ const Profile = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter State/Province"
+                          name="state"
+                          value={setData.state}
+                          onChange={handleInputChange}
                         />
                       </div>
                       <div className="mb-3">
@@ -422,6 +617,9 @@ const Profile = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter City"
+                          name="city"
+                          value={setData.city}
+                          onChange={handleInputChange}
                         />
                       </div>
                       <div className="mb-0">
@@ -430,6 +628,9 @@ const Profile = () => {
                           type="text"
                           className="form-control"
                           placeholder="Enter Postal Code"
+                          name="postalCode"
+                          value={setData.postalCode}
+                          onChange={handleInputChange}
                         />
                       </div>
                     </div>
@@ -440,6 +641,7 @@ const Profile = () => {
                     to="#"
                     className="btn btn-light me-2"
                     data-bs-dismiss="modal"
+                    onClick={handlecancel}
                   >
                     Cancel
                   </Link>
@@ -447,6 +649,7 @@ const Profile = () => {
                     to="#"
                     className="btn btn-primary"
                     data-bs-dismiss="modal"
+                    onClick={handleSave}
                   >
                     Save Changes
                   </Link>
@@ -488,8 +691,8 @@ const Profile = () => {
                           />
                           <span
                             className={`ti toggle-passwords ${passwordVisibility.oldPassword
-                                ? "ti-eye"
-                                : "ti-eye-off"
+                              ? "ti-eye"
+                              : "ti-eye-off"
                               }`}
                             onClick={() =>
                               togglePasswordVisibility("oldPassword")
@@ -510,8 +713,8 @@ const Profile = () => {
                           />
                           <span
                             className={`ti toggle-passwords ${passwordVisibility.newPassword
-                                ? "ti-eye"
-                                : "ti-eye-off"
+                              ? "ti-eye"
+                              : "ti-eye-off"
                               }`}
                             onClick={() =>
                               togglePasswordVisibility("newPassword")
@@ -532,8 +735,8 @@ const Profile = () => {
                           />
                           <span
                             className={`ti toggle-passwords ${passwordVisibility.confirmPassword
-                                ? "ti-eye"
-                                : "ti-eye-off"
+                              ? "ti-eye"
+                              : "ti-eye-off"
                               }`}
                             onClick={() =>
                               togglePasswordVisibility("confirmPassword")
