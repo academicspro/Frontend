@@ -4,6 +4,10 @@ import { toast } from "react-toastify";
 import Table from "../../../../core/common/dataTable/index"; // Adjust path as needed
 import { IFeatureObj } from "../../../../services/types/features";
 import { getAllFeatures, requestFeature } from "../../../../services/admin/featuresServices";
+import Loader from "../../../../core/common/loader";
+import CustomLoader from "../../../../components/Loader";
+
+
 
 const AdminRequestFeaturesPage = () => {
     const [featuresList, setFeaturesList] = useState<Array<IFeatureObj>>([]);
@@ -122,24 +126,24 @@ const AdminRequestFeaturesPage = () => {
 
     return (
         <div className="page-wrapper">
-            <div className="content">
-                <div className="card">
-                    {fetchRequestLoader ? (<p>Loading</p>) : null}
-
-                    {!fetchRequestLoader ? (
-                        <Fragment>
-                            <div className="card-header d-flex align-items-center justify-content-between flex-wrap pb-0">
-                                <h4 className="mb-3">Features List</h4>
-                            </div>
-                            <div className="card-body p-0 py-3">
-                                <Table  dataSource={featuresList} columns={columns} />
-                            </div>
-                        </Fragment>
-                    ) : null}
-
+        <div className="content">
+          <div className="card min-vh-100" style={{ position: "relative" }}>
+            {fetchRequestLoader && <CustomLoader size={50} color="blue" variant="dots" />}
+            
+            {!fetchRequestLoader ? (
+              <>
+                <div className="card-header d-flex align-items-center justify-content-between flex-wrap pb-0">
+                  <h4 className="mb-3">Features List</h4>0
                 </div>
-            </div>
+                <div className="card-body p-0 py-3">
+                  <Table dataSource={featuresList} columns={columns} />
+                </div>
+              </>
+            ) : null}
+          </div>
         </div>
+        </div>
+      
     );
 };
 
