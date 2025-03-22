@@ -62,6 +62,29 @@ export const SidebarData: SidebarItem[] = [
     ],
   },
   {
+    label: "HRM Module",
+    icon: "ti ti-page-break",
+    submenu: true,
+    showSubRoute: false,
+    roles: ["superadmin", "admin"],
+    submenuItems: [
+      {
+        label: "Request Feature",
+        link: routes.requestFeatures,
+        showSubRoute: false,
+        icon: "ti ti-page-break",
+        roles: ["admin"],
+      },
+      {
+        label: "Feature Requests List",
+        link: routes.featuresRequestList,
+        showSubRoute: false,
+        icon: "ti ti-page-break",
+        roles: ["superadmin"],
+      },
+    ],
+  },
+  {
     label: "LAYOUT",
     submenuOpen: false,
     showSubRoute: false,
