@@ -4,7 +4,7 @@ export const all_routes = {
   parentDashboard: "/parent-dashboard",
   studentDashboard: "/student-dashboard",
   teacherDashboard: "/teacher-dashboard",
-  superAdminDashboard : "/super-dashboard",
+  superAdminDashboard: "/super-dashboard",
 
   blankPage: "/blank-page",
   calendar: "/calendar",
@@ -133,8 +133,8 @@ export const all_routes = {
   paymentGateways: "/financial-settings/payment-gateways",
   taxRates: "/financial-settings/tax-rates",
 
-  schoolSettings : "/academic-settings/school-settings",
-  religion : "/academic-settings/religion",
+  schoolSettings: "/academic-settings/school-settings",
+  religion: "/academic-settings/religion",
 
   connectedApps: "/general-settings/connected-apps",
   notificationssettings: "/general-settings/notifications-settings",
@@ -150,7 +150,7 @@ export const all_routes = {
   smsSettings: "/system-settings/sms-settings",
   optSettings: "/system-settings/otp-settings",
 
-  socialAuthentication : "/website-settings/social-authentication",
+  socialAuthentication: "/website-settings/social-authentication",
   companySettings: "/website-settings/company-settings",
   language: "/website-settings/language",
   localization: "/website-settings/localization",
@@ -226,25 +226,25 @@ export const all_routes = {
 
 
   // Management
-  feesGroup:"/management/fees-group",
-  feesType:"/management/fees-type",
-  feesMaster:"/management/fees-master",
-  feesAssign:"/management/fees-assign",
-  collectFees:"/management/collect-fees",
-  libraryMembers:"/management/library-members",
-  libraryIssueBook:"/management/library-issue-book",
-  libraryBooks:"/management/library-books",
-  libraryReturn:"/management/library-return",
-  playerList:"/management/players",
-  sportsList:"/management/sports",
-  hostelList:"/management/hostel-list",
-  hostelType:"/management/hostel-type",
-  hostelRoom:"/management/hostel-rooms",
-  transportAssignVehicle:"/management/transport-assign-vehicle",
-  transportVehicle:"/management/transport-vehicle",
-  transportVehicleDrivers:"/management/transport-vehicle-drivers",
-  transportPickupPoints:"/management/transport-pickup-points",
-  transportRoutes:"/management/transport-routes",
+  feesGroup: "/management/fees-group",
+  feesType: "/management/fees-type",
+  feesMaster: "/management/fees-master",
+  feesAssign: "/management/fees-assign",
+  collectFees: "/management/collect-fees",
+  libraryMembers: "/management/library-members",
+  libraryIssueBook: "/management/library-issue-book",
+  libraryBooks: "/management/library-books",
+  libraryReturn: "/management/library-return",
+  playerList: "/management/players",
+  sportsList: "/management/sports",
+  hostelList: "/management/hostel-list",
+  hostelType: "/management/hostel-type",
+  hostelRoom: "/management/hostel-rooms",
+  transportAssignVehicle: "/management/transport-assign-vehicle",
+  transportVehicle: "/management/transport-vehicle",
+  transportVehicleDrivers: "/management/transport-vehicle-drivers",
+  transportPickupPoints: "/management/transport-pickup-points",
+  transportRoutes: "/management/transport-routes",
 
 
 
@@ -320,16 +320,17 @@ export const all_routes = {
   teacherDayWise: "/report/teacher-day-wise",
   staffDayWise: "/report/staff-day-wise",
   //page module
-  profile:"/pages/profile",
-  activity:"/pages/activities",
+  profile: "/pages/profile",
+  activity: "/pages/activities",
 
 
 
 
-    // Super Admin
-    addSchools: "/super-admin/add-schools",
-    getSchools: "/super-admin/get-schools",
+  // Super Admin
+  addSchools: "/super-admin/add-schools",
+  getSchools: "/super-admin/get-schools",
+  featuresRequestList: "/super-admin/features-request-list",
 
-    // Admin Routes
-    requestFeatures: "/admin/request-features",
+  // Admin Routes
+  requestFeatures: "/admin/request-features",
 };
